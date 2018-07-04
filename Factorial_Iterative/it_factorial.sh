@@ -5,7 +5,7 @@
 count=""
 while [[ ! $count =~ ^[0-9]+$ ]]
 do
-    echo Please enter your a number
+    echo Please enter the number you wish to know the factorial for.
     read count
 done
 #This is to ensure the data the user inputs is only numbers.
