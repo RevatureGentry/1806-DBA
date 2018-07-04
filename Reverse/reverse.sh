@@ -1,10 +1,6 @@
 #!/bin/bash
 
-2> bash_assignment_err_log.txt
-
-echo Please enter the string you wish to have reversed.
-read input
-
+input=$1
 copy=$input
 length=${#copy}
 
