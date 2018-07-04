@@ -1,13 +1,11 @@
 #!/bin/bash
 
-2> bash_assignment_err_log.txt
-
-count=""
-while [[ ! $count =~ ^[0-9]+$ ]]
-do
-    echo Please enter the number you wish to know the factorial for.
-    read count
-done
+count=$1
+if [[ $count =~ ^[A-Za-z_]+$ ]]
+then
+    echo Please enter a number next time.
+    exit
+fi
 #This is to ensure the data the user inputs is only numbers.
 
 input=$count
