@@ -1,5 +1,7 @@
 #!/bin/bash
 
+2> bash_assignment_err_log.txt
+
 count=""
 while [[ ! $count =~ ^[0-9]+$ ]]
 do
