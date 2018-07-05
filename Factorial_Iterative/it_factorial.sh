@@ -1,6 +1,15 @@
 #!/bin/bash
 
 count=$1
+#Stores argument for incrementing.
+
+if [[ -z "$count" ]]
+then
+    echo Please enter an argument next time.
+    exit
+fi
+#Checks to see if the argument is null. If True, stops.
+
 if [[ $count =~ ^[A-Za-z_]+$ ]]
 then
     echo Please enter a number next time.
