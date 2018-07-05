@@ -4,6 +4,13 @@ input=$1
 copy=$input
 length=${#copy}
 
+if [[ -z "$input" ]]
+then
+    echo Please enter an argument next time.
+    exit
+fi
+#Checks to see if the argument is null. If True, stops.
+
 for((int=$length-1;int>=0;int--));
 do
 	rev="$rev${copy:$int:1}";
