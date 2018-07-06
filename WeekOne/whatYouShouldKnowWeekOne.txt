@@ -1,0 +1,75 @@
+What are the five sublanguages of SQL?
+What are the different constraints?
+What is a candidate key?
+What is a composite key?
+What is cascade delete?
+What are some common commands/clauses and their syntax?
+What are the different relationships? (Multiplicity)? How do you enforce the different relationships?
+What is the difference between an Equijoin and a Nonequijoin?
+What is an Entity Relational Diagram?
+What is Normalization? How do we achieve Normalization?
+What is Denormalization?
+What are the different Database System types?
+What is a subquery? What are the different types of subqueries?
+What is referential integrity?
+What is an orphaned record?
+What is an aggregate function/scalar function?
+What is the purpose of a conversion function?
+What is a join?
+What are the different joins available?
+What are the differences between the joins?
+What is a set operator? What are the different set operators available?
+What is the purpose of LIKE?
+What is the purpose of DISTINCT?
+What is the purpose of SELECT INTO?
+How would I limit the number of records in a result set?
+What is the difference between WHERE and HAVING?
+What is the difference between DELETE, DROP, and TRUNCATE?
+What is the difference between ORDER BY and GROUP BY?
+What is the difference between PERCENTILE_CONT and PERCENTILE_DISC?
+What is the difference between WHERE IN/NOT IN and WHERE EXISTS/NOT EXISTS?
+What is a View? What are the different types of Views?
+What are some advantages to using Views?
+Under what circumstances can DML be performed against a View?
+What are the purpose of the options WITH READ ONLY and WITH CHECK OPTION when creating a View?
+What is an Index? Why do we need Indexes?
+How do Indexes work?
+What is the difference between B-Tree, Function Based, and Bitmap Indexes?
+What is the difference between Unique and Non-Unique Indexes?
+
+What is a shell? What are some common shells available?
+What is RHEL? 
+What is a script?
+What are some of the special variables available in a script?
+What are environment variables?
+How would I create a substring in Bash?
+How would I perform string substitution in Bash?
+What is command substitution?
+What is a process?
+What is the shebang?
+In what ways can we perform mathematical expressions in a Bash script?
+What loops are available in Bash?
+How do we explicitly exit a loop? How do we explicitly move to the next iteration in a loop?
+What are permissions? What are the different ways we can set permissions?
+In what ways can we achieve I/O Redirection?
+What is the purpose of a Pipe?
+What is a Regular Expression?
+Know common use cases for the following commands
+	- cd
+	- pwd
+	- ls
+	- mv
+	- cp
+	- chmod
+	- chgrp
+	- chown
+	- grep
+	- history
+	- cat
+	- echo
+	- date
+	- sudo
+	- su 
+	- man
+	- read
+	- 
