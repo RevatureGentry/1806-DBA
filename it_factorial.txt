@@ -1,0 +1,29 @@
+#!/bin/bash
+
+DATE=$(date +"%m/%d/%Y")
+NUM=$1
+
+if [[ $NUM =~ ^[0-9]+$ ]]
+
+then
+	echo "That is a number"
+else
+	echo "That is not a number" && echo "$DATE user entered an incorrect value" >> bash_assingment_err_log.txt
+fi
+
+COUNTER=$NUM
+
+FACTORIAL=1
+
+while [ $COUNTER -gt 0 ]
+
+do
+        FACTORIAL=$(( $FACTORIAL * $COUNTER ))
+        COUNTER=$(( $COUNTER - 1 ))
+done
+
+if [[ $NUM =~ ^[0-9]+$ ]]
+
+then
+	echo "The factorial is $FACTORIAL"
+fi
