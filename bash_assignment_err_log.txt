@@ -1,2 +1,4 @@
-07/06/2018 user entered and incorrect value
-07/06/2018 user entered an incorrect value
+user didnt supply an argument
+date user didnt supply an argument
+2018-07-06 23:03:31 user didnt supply an argument
+2018-07-06 23:06:05 user didnt supply an argument
