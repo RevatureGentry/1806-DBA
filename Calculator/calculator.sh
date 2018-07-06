@@ -2,23 +2,27 @@
 
 while true
 do
-	n1=""
+	echo Please enter the first number you wish to calculate.
+	read n1
 	while [[ ! $n1 =~ ^[0-9]+$ ]]
 	do
     		echo Please enter the first number you wish to calculate.
-    		read n1
+    		"Please enter the first number you wish to calculate." 2>> /home/ec2-user/GitHub/1806-DBA/Calculator/bash_assignment_error_log.txt
+		read n1
 	done
 	#Data validation so only a number is accepted.
 
-	n2=""
+	echo Please enter the second number you wish to calculate.
+	read n2
 	while [[ ! $n2 =~ ^[0-9]+$ ]]
 	do
     		echo Please enter the second number you wish to calculate.
-  		read n2
+  		"Please enter the second number you wish to calculate." 2>> /home/ec2-user/GitHub/1806-DBA/Calculator/bash_assignment_error_log.txt
+		read n2
 	done
 	#Data validation so only a number is accepted.
 
-	echo "Which operation would you like to use? "
+	echo "Which operation would you like to use?"
 
 	select ans in add subtract multiply divide; do
 		case $ans in
@@ -30,7 +34,7 @@ do
 			break ;;
 			divide) op='/'
 			break ;;
-			*) echo "invalid response"
+			*) echo "invalid response" && "Not a valid response." 2>> /home/ec2-user/GitHub/1806-DBA/Calculator/bash_assignment_error_log.txt
 			;;
 		esac
 	done

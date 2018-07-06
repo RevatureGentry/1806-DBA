@@ -1,0 +1,1 @@
+./fizz_buzz.sh: line 6: Stop putting arguments into my script, baka!: command not found

@@ -1,0 +1,1 @@
+./calculator.sh: line 10: Please enter the first number you wish to calculate.: command not found

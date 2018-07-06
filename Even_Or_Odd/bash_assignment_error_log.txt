@@ -1,0 +1,2 @@
+./even_or_odd.sh: line 16: Please enter a number next time.: command not found
+./even_or_odd.sh: line 8: Please enter an argument next time.: command not found

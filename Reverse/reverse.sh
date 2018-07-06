@@ -6,8 +6,9 @@ length=${#copy}
 
 if [[ -z "$input" ]]
 then
-    echo Please enter an argument next time.
-    exit
+	echo Please enter an argument next time.
+    	"Please enter an argument next time." 2>> /home/ec2-user/GitHub/1806-DBA/Calculator/bash_assignment_error_log.txt
+	exit
 fi
 #Checks to see if the argument is null. If True, stops.
 
