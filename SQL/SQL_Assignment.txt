@@ -50,10 +50,19 @@ ORDER BY LargestSize DESC;
 --Sidenote: Unable to only allow one record to return without it returning the incorrect record
 
 Write a SQL Query that contains the titles of all albums with tracks longer than 6 minutes in them
-
-
+SELECT DISTINCT TITLE FROM (
+SELECT DISTINCT ALBUM.TITLE, TRACK.MILLISECONDS
+FROM ALBUM, TRACK
+WHERE ALBUM.ALBUMID=TRACK.ALBUMID AND TRACK.MILLISECONDS > 360000)
+ORDER BY TITLE;
 Write a SQL Query that contains the albumId and number of songs in the album
+SELECT ALBUM.ALUMBID, COUNT(TRACK.TACKID) AS Total_Songs
+FROM ALBUM
+INNER JOIN TRACK ON ALBUM.ALBUMID=TRACK.ALBUMID
+GROUP BY ALBUM.ALBUMID;
+
 Write a SQL query that contains artist's names and the number of tracks they have produced (assume an artist produced a track if it appears in one of their albums)
+
 Write a SQL Query that returns the most purchased media type
 Write a SQL Query showing customers not in the US
 Write a SQL Query showing a unique list of billing countries on the Invoice table
