@@ -1,2 +1,5 @@
 
 fizz_buzz.sh: line 7: 07/07/2018 12:16:18 PM Do not enter any arguments.: No such file or directory
+fizz_buzz.sh: line 8: 07/07/2018 13:52:03 PM Do not enter any arguments.: No such file or directory
+even_or_odd.sh: line 7:  Please enter 1 number: command not found
+even_or_odd.sh: line 7:  Please enter 1 number: command not found
