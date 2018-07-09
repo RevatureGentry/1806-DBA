@@ -1,0 +1,241 @@
+-- Write SQL Queries that inserts 5 records into the Employee table
+insert into EMPLOYEE (EMPLOYEEID,LASTNAME,FIRSTNAME)values (9, 'babikir' , 'ahmed');
+insert into EMPLOYEE (EMPLOYEEID,LASTNAME,FIRSTNAME)values(10,'khan','imran');
+insert into EMPLOYEE (EMPLOYEEID,LASTNAME,FIRSTNAME)values(11,'ali','mohamed');
+insert into EMPLOYEE (EMPLOYEEID,LASTNAME,FIRSTNAME)values(12,'mohamed','highazi');
+insert into EMPLOYEE (EMPLOYEEID,LASTNAME,FIRSTNAME)values(13,'babikir','higazi');
+
+-- Write SQL Queries that inserts 10 records into the Customer table
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values (60, 'babikir' , 'ahmed','AHMED@GMAIL.COM');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values(61,'khan','imran','KHAN@GMAIL.COM');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values(62,'ali','mohamed','MOHAMED@GMAIL.COM');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values(63,'mohamed','highazi','HIGAZI@GMAIL.COM');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values(64,'babikir','higazi','BABIKIR@GMAIL.COM');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values (65, 'babikir' , 'ahmed','SAHRA@GMAIL.COM');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values(66,'khan','imran','IMRAN@GMAIL.COM');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAM,EMAIL)values(67,'ali','mohamed','ALI@GMAIL.');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values(68,'mahamed','highazi','rashed@GMAIL.COM');
+insert into CUSTOMER (CUSTOMERID,LASTNAME,FIRSTNAME,EMAIL)values(69,'babikir','higazi','SANO@GMAIL.COM');
+
+--Write SQL Queries that inserts 2 new genres
+
+INSERT INTO Genre ( GENREID, NAME ) VALUES ( 26, 'tumtum' );
+INSERT INTO Genre ( GENREID, NAME ) VALUES ( 27, 'cartoon' );
+
+--Write SQL Queries that insert 3 of your favorite albums
+
+insert into artist (artistid, name) values (276,'Mahmoud Abdelazeez')
+insert into artist (artistid, name) values (277,'Zaidan Ibraheem')
+insert into artist (artistid, name) values (278,'Abdelrahman Abdallah')
+INSERT INTO Album ( ALBUMID, TITLE, ARTISTID ) VALUES ( 347, 276,'Mahmoud Abdelazeez' );
+INSERT INTO Album ( ALBUMID, TITLE, ARTISTID ) VALUES ( 348, 277,'Zaidan Ibraheem');
+INSERT INTO Album ( ALBUMID, TITLE, ARTISTID ) VALUES ( 349, 278,'Abdelrahman Abdallah' );
+
+-- Write a SQL Query that contains the names of all tracks that are longer than 6 minutes
+
+SELECT * FROM Track
+WHERE MILLISECONDS > 360000;
+
+--Write a SQL Query to find the biggest song (which takes up the most space)
+
+select trackid, name, Milliseconds, bytes as MostSpaceSong
+from track
+where bytes = (select max(bytes) from track);
+
+--Write a SQL Query that contains the titles of all albums with tracks longer than 6 minutes in them
+
+SELECT a.title, t.milliseconds FROM Album a
+INNER JOIN track t ON a.albumid=t.albumid
+WHERE MILLISECONDS > 360000;
+
+-- Write a SQL Query that contains the albumId and number of songs in the album
+
+SELECT AlbumId, COUNT(Albumid) as NumberOfSongs  FROM track
+Group By AlbumId
+Order By AlbumId;
+
+
+-- Write a SQL query that contains artist's names and the number of tracks they have produced (assume an artist produced a track if it appears in one of their albums)
+
+SELECT a.name, COUNT(t.albumid) as numberOfTrack FROM artist a 
+INNER JOIN album b ON a.artistid=b.artistid
+INNER JOIN track t ON b.albumId=t.albumId
+GROUP BY a.name;
+
+--Write a SQL Query that returns the most purchased media type
+
+SELECT MAX(SalesTotal)
+FROM
+  (SELECT mt.MediaTypeid, SUM(n.total) as SalesTotal
+    FROM Track t 
+    INNER JOIN InvoiceLine il on il.TrackId = t.TrackId
+    INNER JOIN Invoice n ON n.invoiceid = il.invoiceid
+    INNER JOIN mediatype m ON t.mediatypeId = m.mediatypeId
+    GROUP BY m.mediatypeid);
+
+
+--Write a SQL Query showing customers not in the US
+
+SELECT FirstName, LastName, CustomerID, Country 
+FROM Customer 
+WHERE Country != 'US';
+
+--Write a SQL Query showing a unique list of billing countries on the Invoice table
+
+select distinct billingCountry from invoice;
+
+-- Write a SQL Query that shows the Invoice Total, Customer Name, Country, and Sales agent for all invoices and customers
+
+SELECT i.total, c.firstname, c.lastname, c.country, e.firstname, e.lastname 
+FROM invoice i
+INNER JOIN CUSTOMER C ON i.customerid=c.customerid
+INNER JOIN Employee E ON e.employeeid=c.supportrepid;
+
+-- Write a SQL Query that shows all Tracks, but displays no IDs. Should also include the Album name, Media Type, and Genre
+
+SELECT
+  t.Name as TrackName,
+  al.Title as AlbumName,
+  m.Name as MediaType,
+  g.Name as Genre
+FROM Track t
+INNER JOIN Album al on al.AlbumId = t.AlbumId
+INNER JOIN Genre g on g.GenreId  = t.GenreId
+INNER JOIN MediaType m on m.MediaTypeId = t.MediaTypeId;
+
+--Write a SQL Query that returns the Top 40 Songs for 2013
+
+select totInvoice,year, sum(totInvoice) as totSumInvoice
+        from (
+        SELECT EXTRACT (year from i.invoicedate)as Year, i.invoiceid as totInvoice , i.total, t.trackid, t.name as songName   FROM Track t 
+        INNER JOIN Invoiceline il ON t.trackid = il.trackid
+        INNER JOIN Invoice i ON il.invoiceid = i.invoiceid
+        where EXTRACT (year from i.invoicedate) = 2013)
+Group By totInvoice, year, songName
+order by totSumInvoice desc;
+
+--Write a SQL Query that shows which sales agent made the most in sales overall
+
+  SELECT 
+    MAX(SalesMax) as Sales
+FROM 
+  (SELECT
+      e.FirstName as First, e.lastname as Last,
+      SUM(i.Total) as SalesMax
+      FROM Customer c
+      INNER JOIN Employee e on e.EmployeeId = c.SupportRepId
+      INNER JOIN Invoice i on i.CustomerId = c.CustomerId
+      GROUP BY e.EmployeeId, e.FirsTNAME , e.LASTNAME); 
+
+
+
+
+--Write a SQL Query that shows the top 3 best selling artists
+ 
+ SELECT A.NAME, COUNT (il.TRACKID) AS SoldTrack,SUM (il.UNITPRICE) AS totalSale
+    FROM ALBUM al
+    INNER JOIN ARTIST a ON al.ARTISTID = a.ARTISTID
+    INNER JOIN TRACK t ON t.ALBUMID = al.ALBUMID
+    INNER JOIN INVOICELINE il ON il.TRACKID = t.TRACKID
+    GROUP BY A.NAME
+    ORDER BY totalSale DESC
+    FETCH FIRST 3 ROWS ONLY;
+
+
+--Write a SQL Query that returns which albums have no Heavy Metal tracks
+  SELECT al.title, g.name
+        FROM track t INNER JOIN genre g ON t.genreid = g.genreid
+                      INNER JOIN album al ON t.albumid = al.albumid
+        WHERE g.name != ('Heavy Metal');
+
+--Write a SQL Query to find the the managers of employees supporting Brazilian customers
+   SELECT DISTINCT m.firstname, m.lastname
+            from employee m inner join employee e on m.employeeid=e.REPORTSTO
+            inner join customer c on e.employeeid=c.supportrepid
+            where c.country = 'Brazil';
+
+--Write a SQL Query that determines which artist has the most songs in each playlist
+SELECT
+    DISTINCT(ar.name) as artistsNames,count(t.trackid) as TrackNumber, pl.name as playListGenre
+From Artist ar INNER JOIN album al on ar.artistid = al.artistid
+INNER JOIN track t on al.albumid = t.albumid 
+INNER JOIN playlisttrack pt on pt.trackid = t.trackid 
+INNER JOIN playlist pl on pt.playlistid = pl.playlistid 
+Group by ar.name, pl.name
+Order by ar.name;
+
+
+--Write a SQL Query that determines what song(s) appear in the most playlists
+ select     t.name as songName,count(t.trackid) as trackNumber, pl.name as Playlist
+                            From Track t INNER JOIN playlisttrack pt on pt.trackid = t.trackid 
+                            INNER JOIN playlist pl on pt.playlistid = pl.playlistid 
+                            Group by t.name, pl.name
+                            Order by t.name;
+         
+--Write a SQL Query that determines the 5th highest grossing song in 2009, 2010, 2011, 2012, and 2013
+SELECT t.name as songName, extract(year from i.invoicedate) as Year, SUM(i.total) as tot  
+         FROM track t
+                    INNER JOIN InvoiceLine il ON t.trackId = il.trackId
+                    INNER JOIN Invoice i ON il.InvoiceId = i.invoiceId
+                    where  EXTRACT (year from i.invoicedate) IN (2009,2010,2011,2012,2013)
+                    group by t.name,  EXTRACT (year from i.invoicedate), i.total
+                    order by i.total desc
+                    FETCH FIRST 5 ROWS ONLY;
+
+
+--Write a SQL Query that determines the most downloaded genre by country
+
+select distinct customer.country, genre.name, count(genre.name) as downloadcounr
+from customer inner join invoice on customer.customerid = invoice.customerid
+inner join invoiceline on invoiceline.invoiceid=invoice.INVOICEID
+inner join track on track.TRACKID = invoiceline.trackid 
+inner join genre on GENRE.GENREID=TRACK.GENREID
+group by genre.name, customer.country 
+order by downloadcounr desc;
+
+
+
+--Write a SQL Query that determines the genres each salesperson contributes to most
+select *
+from (SELECT  EMPLOYEE.FIRSTNAME, EMPLOYEE.LASTNAME, GENRE.NAME, COUNT(INVOICE.INVOICEID ) AS SONGSOLD
+FROM EMPLOYEE INNER JOIN CUSTOMER ON EMPLOYEE.EMPLOYEEID = CUSTOMER.SUPPORTREPID
+INNER JOIN INVOICE ON CUSTOMER.CUSTOMERID=INVOICE.CUSTOMERID
+INNER JOIN INVOICELINE ON INVOICE.INVOICEID = INVOICELINE.INVOICEID
+INNER JOIN TRACK ON TRACK.TRACKID= INVOICELINE.TRACKID
+INNER JOIN GENRE ON GENRE.GENREID=TRACK.GENREID
+ GROUP BY EMPLOYEE.FIRSTNAME, EMPLOYEE.LASTNAME, GENRE.NAME
+ ORDER BY SONGSOLD DESC)
+ WHERE ROWNUM <= 3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FETCH First 40 Rows Only;
