@@ -177,6 +177,14 @@ Group by t.name\
 ORDER BY TRACKS desc)\
 FETCH FIRST 10 ROW ONLY;\
 \
---Write a SQL Query that determines the 5th highest grossing song in 2009, 2010, 2011, 2012, and 2013\
+--Write a SQL Query that determines the 5th highest grossing song in 2009, 2010, 2011, 2012, and 2013
+SELECT t.name as SONG_Name, extract(year from i.invoicedate) as Year, SUM(i.total) as Total  
+         FROM track t
+                    INNER JOIN InvoiceLine il ON t.trackId = il.trackId
+                    INNER JOIN Invoice i ON il.InvoiceId = i.invoiceId
+                    where  EXTRACT (year from i.invoicedate) IN (2009,2010,2011,2012,2013)
+                    group by t.name,  EXTRACT (year from i.invoicedate), i.total
+                    order by i.total desc
+                    FETCH FIRST 5 ROWS ONLY;
 --Write a SQL Query that determines the most downloaded genre by country\
 --Write a SQL Query that determines the genres each salesperson contributes to most}
