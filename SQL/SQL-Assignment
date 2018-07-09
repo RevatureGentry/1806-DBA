@@ -518,4 +518,4 @@ SELECT *
 --Write a SQL Query that determines what song(s) appear in the most playlists
 --Write a SQL Query that determines the 5th highest grossing song in 2009, 2010, 2011, 2012, and 2013
 --Write a SQL Query that determines the most downloaded genre by country
----Write a SQL Query that determines the genres each salesperson contributes to most
+--Write a SQL Query that determines the genres each salesperson contributes to most
