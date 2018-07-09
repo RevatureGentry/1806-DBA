@@ -2,25 +2,25 @@ SQL Assignment:
 
 --Write SQL Queries that inserts 5 records into the Employee table
 INSERT ALL
-    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100001', 'FNAME1', 'LNAME1')
-    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100002', 'FNAME2', 'LNAME2')
-    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100003', 'FNAME3', 'LNAME3')
-    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100004', 'FNAME4', 'LNAME4')
-    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100005', 'FNAME5', 'LNAME5')
+    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100001', 'Martin', 'Benjamin')
+    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100002', 'Doe', 'Joe')
+    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100003', 'Doe', 'John')
+    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100004', 'Bryant', 'Kobey')
+    INTO Employee ( EMPLOYEEID, LASTNAME, FIRSTNAME ) VALUES ('100005', 'Jordan', 'Michael')
 SELECT * FROM dual;
 
 --Write SQL Queries that inserts 10 records into the Customer table
 INSERT ALL
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100001', 'FNAME1', 'LNAME1', 'EMAIL1')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100002', 'FNAME2', 'LNAME2', 'EMAIL2')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100003', 'FNAME3', 'LNAME3', 'EMAIL3')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100004', 'FNAME4', 'LNAME4', 'EMAIL4')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100005', 'FNAME5', 'LNAME5', 'EMAIL5')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100006', 'FNAME6', 'LNAME6', 'EMAIL6')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100007', 'FNAME7', 'LNAME7', 'EMAIL7')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100008', 'FNAME8', 'LNAME8', 'EMAIL8')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100009', 'FNAME9', 'LNAME9', 'EMAIL9')
-    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100010', 'FNAME10', 'LNAME10', 'EMAIL10')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100001', 'Martin', 'Benjamin', 'EMAIL1@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100002', 'Doe', 'John', 'EMAIL2@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100003', 'Doe', 'Joe', 'EMAIL3@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100004', 'Bryant', 'Kobey', 'EMAIL4@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100005', 'Jordan', 'Michael', 'EMAIL5@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100006', 'Iwata', 'Satora', 'EMAIL6@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100007', 'Imatsu', 'Nomuo', 'EMAIL7@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100008', 'Aran', 'Samas', 'EMAIL8@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100009', 'Mario', 'Mario', 'EMAIL9@EMAIL.COM')
+    INTO Customer ( CUSTOMERID, FIRSTNAME, LASTNAME, EMAIL ) VALUES ('100010', 'Mario'', 'Mario', 'EMAIL10@EMAIL.COM')
 SELECT * FROM dual;
 
 --Write SQL Queries that inserts 2 new genres
@@ -31,9 +31,9 @@ SELECT * FROM dual;
 
 --Write SQL Queries that insert 3 of your favorite albums
 INSERT ALL
-    INTO Album (ALBUMID, TITLE, ARTISTID) VALUES ('348', 'Peace Sells', '1')
-    INTO Album (ALBUMID, TITLE, ARTISTID) VALUES ('349', 'Holy Wars...The Punishment Due', '1')
-    INTO Album (ALBUMID, TITLE, ARTISTID) VALUES ('350', 'Symphony of Destruction', '1')
+    INTO Album (ALBUMID, TITLE, ARTISTID) VALUES ('348', 'Peace Sells', '276')
+    INTO Album (ALBUMID, TITLE, ARTISTID) VALUES ('349', 'Holy Wars...The Punishment Due', '276')
+    INTO Album (ALBUMID, TITLE, ARTISTID) VALUES ('350', 'Symphony of Destruction', '276')
 SELECT * FROM dual; 
 
 --Write a SQL Query that contains the names of all tracks that are longer than 6 minutes
@@ -172,6 +172,349 @@ FROM employee emp, (
 WHERE emp.employeeid = e.reportsto;
 
 --Write a SQL Query that determines which artist has the most songs in each playlist
+--I am not sorry for this monster that I unleashed into this world
+SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 1 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 2 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 3 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 3 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 4 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 5 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 6 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 7 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 8 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 9 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 10 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 11 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 12 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 13 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 14 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 15 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 16 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+    WHERE PLAYLISTID = 17 AND ROWNUM = 1
+    UNION
+    SELECT *
+    FROM (
+        SELECT ARTIST_NAME, PLAYLISTID, COUNT(TRACK_NAME)
+        FROM (
+            SELECT ar.name as Artist_Name, pl.playlistid as PlaylistID, t.name as Track_Name
+            FROM artist ar
+            INNER JOIN album al
+            ON ar.artistid = al.artistid
+            INNER JOIN track t
+            ON al.albumid = t.albumid
+            INNER JOIN playlisttrack plt
+            ON t.trackid = plt.trackid
+            INNER JOIN playlist pl
+            ON plt.playlistid = pl.playlistid)
+        GROUP BY ARTIST_NAME, PLAYLISTID
+        ORDER BY COUNT(TRACK_NAME)DESC)
+        WHERE PLAYLISTID = 18 AND ROWNUM = 1;
+
 --Write a SQL Query that determines what song(s) appear in the most playlists
 --Write a SQL Query that determines the 5th highest grossing song in 2009, 2010, 2011, 2012, and 2013
 --Write a SQL Query that determines the most downloaded genre by country
