@@ -135,6 +135,7 @@ from employee m inner join employee e on e.REPORTSTO=m.EMPLOYEEID
 inner join customer c on e.EMPLOYEEID=c.SUPPORTREPID
 where c.country like 'Brazil';
 --Write a SQL Query that determines which artist has the most songs in each playlist
+Shows the artist with the most songs in playlists.
 Select * 
 from (select artist.name, count(playlisttrack.trackid) as tracks
 from artist inner join album on artist.artistid = album.ARTISTID
@@ -143,11 +144,20 @@ inner join PLAYLISTTRACK on track.trackid=PLAYLISTTRACK.TRACKID
 group by artist.name
 order by tracks desc)
 where rownum = 1;
+
+per playlist
+select artist.name, playlist.name, count(playlisttrack.trackid) as tracks
+from artist inner join album on artist.artistid = album.ARTISTID
+inner join track on track.albumid = album.ALBUMID
+inner join PLAYLISTTRACK on track.trackid=PLAYLISTTRACK.TRACKID
+inner join playlist on playlisttrack.playlistid=playlist.PLAYLISTID
+group by artist.name, playlist.NAME
+order by tracks desc;
 --Write a SQL Query that determines what song(s) appear in the most playlists
 Select * 
-from (select track.name, count(playlisttrack.trackid) as tracks_in_playlists
+from (select track.trackid, count(playlisttrack.trackid) as tracks_in_playlists
 from track inner join PLAYLISTTRACK on track.trackid=PLAYLISTTRACK.TRACKID
-group by track.NAME
+group by track.trackid
 order by tracks_in_playlists desc)
 where rownum <= 10;
 --Write a SQL Query that determines the 5th highest grossing song in 2009, 2010, 2011, 2012, and 2013
@@ -169,7 +179,7 @@ group by customer.country, genre.name
 order by customer.country, count desc;
 --Write a SQL Query that determines the genres each salesperson contributes to most
 Select *
-from (select employee.firstname, genre.name, count(invoiceline.quantity) as Timescontributed
+from (select distinct employee.firstname, genre.name, sum(invoiceline.quantity) as Timescontributed
 from employee inner join customer on employee.EMPLOYEEID=customer.SUPPORTREPID
 inner join invoice on customer.customerid=invoice.customerid
 inner join invoiceline on invoice.invoiceid=invoiceline.INVOICEID
