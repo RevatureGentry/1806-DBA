@@ -93,13 +93,13 @@ INSERT INTO Album (AlbumID, Title, ArtistID) VALUES (350, 'Paranoia',
 278);
 
 --Write a SQL Query that contains the names of all tracks that are 
-longer than 6 minutes
+--longer than 6 minutes
 SELECT Name, Milliseconds
 FROM Track
 WHERE Milliseconds > 360000;
 
 --Write a SQL Query to find the biggest song (which takes up the most 
-space)
+--space)
 SELECT *
 FROM Track
 WHERE(
@@ -108,7 +108,7 @@ WHERE(
     )= BYTES;
 
 --Write a SQL Query that contains the titles of all albums with tracks 
-longer than 6 minutes in them
+--longer than 6 minutes in them
 SELECT Title
 FROM Album a
 INNER JOIN Track t
@@ -116,14 +116,14 @@ ON a.albumid = t.ALBUMID
 WHERE Milliseconds > 360000;
 
 --Write a SQL Query that contains the albumId and number of songs in the 
-album
+--album
 SELECT AlbumID, Count(AlbumID) as NumberOfSongs
 FROM Track
 GROUP BY AlbumID;
 
 --Write a SQL query that contains artist's names and the number of 
-tracks they have produced (assume an artist produced a track if it 
-appears in one of their albums)
+--tracks they have produced (assume an artist produced a track if it 
+--appears in one of their albums)
 SELECT ar.Name, COUNT(t.name)
 FROM Artist ar
 INNER JOIN Album al
@@ -157,12 +157,12 @@ FROM Customer
 WHERE Country <> 'USA';
 
 --Write a SQL Query showing a unique list of billing countries on the 
-Invoice table
+--Invoice table
 SELECT DISTINCT BillingCountry
 FROM Invoice;
 
 --Write a SQL Query that shows the Invoice Total, Customer Name, 
-Country, and Sales agent for all invoices and customers
+--Country, and Sales agent for all invoices and customers
 SELECT i.Total, c.FirstName||' '||c.LastName as CustomerName, c.Country, 
 c.SupportRepID
 FROM Customer c
@@ -170,7 +170,7 @@ INNER JOIN Invoice i
 ON c.CustomerID = i.CustomerID;
 
 --Write a SQL Query that shows all Tracks, but displays no IDs. Should 
-also include the Album name, Media Type, and Genre
+--also include the Album name, Media Type, and Genre
 SELECT t.name, al.title, mt.name, g.name
 FROM Track t
 INNER JOIN Album al
@@ -196,7 +196,7 @@ FROM (
 WHERE ROWNUM < 41;
 
 -- Write a SQL Query that shows which sales agent made the most in sales 
-overall
+--overall
 SELECT e.firstname||' '||e.lastname AS FULL_NAME, SUM(il.unitprice) AS 
 TOTAL_SALES
 FROM employee e
@@ -233,7 +233,7 @@ INNER JOIN genre g ON t.genreid = g.genreid
 WHERE g.name <> 'Metal';
 
 --Write a SQL Query to find the the managers of employees supporting 
-Brazilian customers
+--Brazilian customers
 SELECT DISTINCT e.firstname||' '||e.lastname as FULL_NAME
 FROM employee e, (
     SELECT DISTINCT emp.employeeid, emp.firstname, emp.lastname, 
@@ -245,7 +245,7 @@ emp.reportsto, c.country
 WHERE e.employeeid = emp.reportsto;
 
 --Write a SQL Query that determines which artist has the most songs in 
-each playlist
+--each playlist
 SELECT * 
 FROM (
     SELECT ar.name, COUNT(pt.trackid) AS OCCURANCES
@@ -257,7 +257,7 @@ FROM (
 WHERE ROWNUM = 1;
 
 --Write a SQL Query that determines what song(s) appear in the most 
-playlists
+--playlists
 SELECT * FROM(
 SELECT t.name, COUNT(pt.trackid) AS TRACK_COUNT
 FROM playlisttrack pt
@@ -269,7 +269,7 @@ WHERE ROWNUM <= 5
 ;
 
 --Write a SQL Query that determines the 5th highest grossing song in 
-2009, 2010, 2011, 2012, and 2013
+--2009, 2010, 2011, 2012, and 2013
 --DIDN'T COMPLETE
 SELECT TO_CHAR(i.invoicedate,'YY'), il.trackid, il.unitprice * 
 COUNT(il.trackid) AS GROSS
@@ -292,7 +292,7 @@ ORDER BY COUNT(il.trackid)DESC, c.Country;
 
 
 --Write a SQL Query that determines the genres each salesperson 
-contributes to most
+--contributes to most
 
 SELECT * FROM(
 SELECT g.name, e.employeeid, COUNT(g.name)
