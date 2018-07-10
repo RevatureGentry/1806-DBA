@@ -1,11 +1,13 @@
 #!/bin/bash
-
 read -p "Please type a sentance: " STRING
-LENGTH='echo ${#STRING}'
-while [ $length -gt 0 ]
-do
-GNIRTS='echo $STRING | cut -c $length'
-((LENGTH--))
-done
-echo $GNIRTS
+#echo $STRING | rev
 
+GNIRTS=""
+
+LENGTH=${#STRING}
+for (( i=$LENGTH-1; i>=0; i--))
+do
+GNIRTS="$GNIRTS${STRING:$i:1}"
+done
+
+echo "$GNIRTS"
