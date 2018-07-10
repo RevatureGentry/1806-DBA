@@ -513,7 +513,7 @@ SELECT *
             ON plt.playlistid = pl.playlistid)
         GROUP BY ARTIST_NAME, PLAYLISTID
         ORDER BY COUNT(TRACK_NAME)DESC)
-        WHERE PLAYLISTID = 18 AND ROWNUM = 1;
+    WHERE PLAYLISTID = 18 AND ROWNUM = 1;
 
 --Write a SQL Query that determines what song(s) appear in the most playlists
 --Write a SQL Query that determines the 5th highest grossing song in 2009, 2010, 2011, 2012, and 2013
