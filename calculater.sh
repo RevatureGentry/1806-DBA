@@ -32,7 +32,3 @@ else [int = "y"]
 clear
 fi
 done
-
-
-
-
