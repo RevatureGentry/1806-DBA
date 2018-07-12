@@ -22,3 +22,31 @@ END;
 delete from customer where customerid = 60;
 commit;
 /
+
+/*As a procedure*/
+create procedure create_dan(pk IN NUMBER, firstname IN VARCHAR, 
+    lastname IN VARCHAR, email IN VARCHAR, phone_number IN VARCHAR, rep IN NUMBER)
+    IS
+BEGIN
+    set transaction isolation level read committed;
+    insert into customer(customerid, firstname, lastname, email)
+        values(pk, firstname, lastname, email);
+    SAVEPOINT new_customer;
+    DBMS_OUTPUT.PUT_LINE('set savepoint new_customer');
+	update customer set company = 'Revature' where customerid = pk;
+    update customer set supportrepid = rep where customerid = pk;
+    exception
+        when INVALID_NUMBER then
+            DBMS_OUTPUT.PUT_LINE('invalid_number occurred');
+            ROLLBACK TO new_customer;
+        when OTHERS then
+            DBMS_OUTPUT.PUT_LINE('some other exception occurred');
+    update customer set phone = phone_number where customerid = pk;
+    COMMIT;
+END;
+/
+-- call a procedure
+call create_dan(61, 'Jan', 'Pickles', 'jan.pickles@revature.com', '555-5555', 8);
+/
+select * from customer where customerid = 61;
+/
