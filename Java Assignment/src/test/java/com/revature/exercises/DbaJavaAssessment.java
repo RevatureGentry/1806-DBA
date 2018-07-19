@@ -216,7 +216,7 @@ public class DbaJavaAssessment {
 				"Fizz\r\n" + 
 				"13\r\n" + 
 				"14\r\n" + 
-				"Fizz\r\n" + 
+				"FizzBuzz\r\n" + 
 				"16\r\n" + 
 				"17\r\n" + 
 				"Fizz\r\n" + 
@@ -231,7 +231,7 @@ public class DbaJavaAssessment {
 				"Fizz\r\n" + 
 				"28\r\n" + 
 				"29\r\n" + 
-				"Fizz\r\n" + 
+				"FizzBuzz\r\n" + 
 				"31\r\n" + 
 				"32\r\n" + 
 				"Fizz\r\n" + 
@@ -246,7 +246,7 @@ public class DbaJavaAssessment {
 				"Fizz\r\n" + 
 				"43\r\n" + 
 				"44\r\n" + 
-				"Fizz\r\n" + 
+				"FizzBuzz\r\n" + 
 				"46\r\n" + 
 				"47\r\n" + 
 				"Fizz\r\n" + 
@@ -261,7 +261,7 @@ public class DbaJavaAssessment {
 				"Fizz\r\n" + 
 				"58\r\n" + 
 				"59\r\n" + 
-				"Fizz\r\n" + 
+				"FizzBuzz\r\n" + 
 				"61\r\n" + 
 				"62\r\n" + 
 				"Fizz\r\n" + 
@@ -276,7 +276,7 @@ public class DbaJavaAssessment {
 				"Fizz\r\n" + 
 				"73\r\n" + 
 				"74\r\n" + 
-				"Fizz\r\n" + 
+				"FizzBuzz\r\n" + 
 				"76\r\n" + 
 				"77\r\n" + 
 				"Fizz\r\n" + 
@@ -291,7 +291,7 @@ public class DbaJavaAssessment {
 				"Fizz\r\n" + 
 				"88\r\n" + 
 				"89\r\n" + 
-				"Fizz\r\n" + 
+				"FizzBuzz\r\n" + 
 				"91\r\n" + 
 				"92\r\n" + 
 				"Fizz\r\n" + 
