@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="PLAYLIST" directorySegmentName="seg_0" id="2A660711-430A-C3DA-63DE-2C42C1939B01">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:26 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<schemaObject>BF8D4D3C-C230-A18C-AAE5-514E33CA7B35</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>965AD8A6-477F-7CB4-D1DF-0F7358417BCA</segment>
+<tableSpace>BBE208F0-22D4-D22C-0C07-FBA509FAC116</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="NAME" id="19AC4FA6-98D7-CE6D-4997-4AEF243F5DA6">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PLAYLISTID" id="DB5BE961-125C-6F21-58B7-511A1111544B">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="PK_PLAYLIST" id="8CE089A9-AE75-D01D-A31F-526743713C07">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:29 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<schemaObject>BF8D4D3C-C230-A18C-AAE5-514E33CA7B35</schemaObject>
+<segment>9372BB5A-1F84-11DE-6345-8CC3CA6723AE</segment>
+<tableSpace>BBE208F0-22D4-D22C-0C07-FBA509FAC116</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_PLAYLIST" id="8AF503A3-DD9D-2F40-F290-D23161B684E6">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:30 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<segment>9372BB5A-1F84-11DE-6345-8CC3CA6723AE</segment>
+<tableSpace>BBE208F0-22D4-D22C-0C07-FBA509FAC116</tableSpace>
+<existingIndex>8CE089A9-AE75-D01D-A31F-526743713C07</existingIndex>
+<indexSegment>9372BB5A-1F84-11DE-6345-8CC3CA6723AE</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,136 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A1D90D87-8EB6-9397-0F0D-A225CFD3764F" schemaObject="BF8D4D3C-C230-A18C-AAE5-514E33CA7B35" name="INVOICELINE">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>INVOICELINE</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:26 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="INVOICELINEID" id="376A8583-6D33-6FF7-5241-DF9193D7E693">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>INVOICELINE</sourceObjSchema>
+<sourceObjName>INVOICELINEID</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INVOICEID" id="C0270A05-B17E-3C62-0506-8224790B964E">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>INVOICELINE</sourceObjSchema>
+<sourceObjName>INVOICEID</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="48818956-46D6-0FDB-1F8C-72005DCDCF28" referredColumn="666FD8DB-F787-5F6F-57BB-4C0D229A3E48"/>
+</associations>
+</Column>
+<Column name="TRACKID" id="35773453-43BD-1ECB-00C7-BE8E6832AD59">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>INVOICELINE</sourceObjSchema>
+<sourceObjName>TRACKID</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="719EA171-3A79-7E72-10E2-89373B5C2A9A" referredColumn="23DE72FF-EF80-F186-0533-F2AEF9C77FDE"/>
+</associations>
+</Column>
+<Column name="UNITPRICE" id="A4AFC3A9-704B-FF7C-202B-CF2F08F8746A">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>INVOICELINE</sourceObjSchema>
+<sourceObjName>UNITPRICE</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QUANTITY" id="41957473-5F86-190B-D43E-64D6D85857F1">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>INVOICELINE</sourceObjSchema>
+<sourceObjName>QUANTITY</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6EF4AB7E-9A2C-9568-0CDF-FD5FFD51777D" name="PK_INVOICELINE">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PK_INVOICELINE</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:30 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="376A8583-6D33-6FF7-5241-DF9193D7E693"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D333C549-CD85-4C07-58CA-DE1A87E818FB" schemaObject="BF8D4D3C-C230-A18C-AAE5-514E33CA7B35" name="PK_INVOICELINE">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PK_INVOICELINE</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:29 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="376A8583-6D33-6FF7-5241-DF9193D7E693"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F5F5C1F-0BD0-91C9-A28F-431706EDA033" name="FK_INVOICELINEINVOICEID">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:31 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C0270A05-B17E-3C62-0506-8224790B964E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="904E25F3-EA03-B532-9746-2D15F5954DE4" name="FK_INVOICELINETRACKID">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:31 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="35773453-43BD-1ECB-00C7-BE8E6832AD59"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

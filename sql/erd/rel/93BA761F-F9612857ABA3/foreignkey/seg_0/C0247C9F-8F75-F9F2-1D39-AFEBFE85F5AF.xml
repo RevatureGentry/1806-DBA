@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C0247C9F-8F75-F9F2-1D39-AFEBFE85F5AF" containerWithKeyObject="B5C064BD-0929-3946-A094-95930324AF0B" localFKIndex="BDFA3DD7-57B5-010B-6B81-741E8B57119F" name="FK_CUSTOMERSUPPORTREPID">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>FK_CUSTOMERSUPPORTREPID</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:31 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<referredTableLongName>CHINOOK.EMPLOYEE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>4A2AFA28-0DEC-BC0F-5881-24822E26428F</referredTableID>
+<keyObject>14DA7D12-77A7-B2B7-B38E-5675054334CA</keyObject>
+<referredKeyID>14DA7D12-77A7-B2B7-B38E-5675054334CA</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>EMPLOYEEID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1362E385-BA12-65FD-103A-C806B67DF3A3" schemaObject="BF8D4D3C-C230-A18C-AAE5-514E33CA7B35" name="PLAYLISTTRACK">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PLAYLISTTRACK</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:26 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PLAYLISTID" id="B7C16551-9FCB-47BE-6F01-6ECF51B1F05C">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>PLAYLISTTRACK</sourceObjSchema>
+<sourceObjName>PLAYLISTID</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="14F4419E-3483-FD5C-DE3B-9826F1B69505" referredColumn="DB5BE961-125C-6F21-58B7-511A1111544B"/>
+</associations>
+</Column>
+<Column name="TRACKID" id="6B34FBC3-9C73-E1AF-BD28-5B2A6C9FB27C">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>PLAYLISTTRACK</sourceObjSchema>
+<sourceObjName>TRACKID</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:27 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="505CAC4C-B9F7-48AD-279A-BC5BC9F14036" referredColumn="23DE72FF-EF80-F186-0533-F2AEF9C77FDE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CD45A9E9-8F86-0A25-8CA3-44C5EF851849" name="PK_PLAYLISTTRACK">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PK_PLAYLISTTRACK</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:30 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7C16551-9FCB-47BE-6F01-6ECF51B1F05C"/>
+<colUsage columnID="6B34FBC3-9C73-E1AF-BD28-5B2A6C9FB27C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FD810B8C-F223-3396-8418-6620EF504EC7" schemaObject="BF8D4D3C-C230-A18C-AAE5-514E33CA7B35" name="PK_PLAYLISTTRACK">
+<sourceConnName>1806-DBA-Chinook</sourceConnName>
+<sourceObjSchema>CHINOOK</sourceObjSchema>
+<sourceObjName>PK_PLAYLISTTRACK</sourceObjName>
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:29 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7C16551-9FCB-47BE-6F01-6ECF51B1F05C"/>
+<colUsage columnID="6B34FBC3-9C73-E1AF-BD28-5B2A6C9FB27C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F5C9B749-4FFF-8A60-5685-F875E030FCDE" name="FK_PLAYLISTTRACKPLAYLISTID">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:31 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7C16551-9FCB-47BE-6F01-6ECF51B1F05C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A130AE10-CDBD-20BC-2B8B-3EACEB917424" name="FK_PLAYLISTTRACKTRACKID">
+<createdBy>andre</createdBy>
+<createdTime>2018-07-06 18:09:31 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6B34FBC3-9C73-E1AF-BD28-5B2A6C9FB27C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
