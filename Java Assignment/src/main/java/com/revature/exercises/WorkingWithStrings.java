@@ -12,8 +12,20 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Boolean isPalindrome(String input) {
-//dumbass test
-		return null;
+		if (input == null)
+			return false;
+		String lowerCase = input.replaceAll("[^a-zA-Z]","");
+		String answer = lowerCase.toLowerCase();
+	    int length = answer.length();
+	    int forward = 0;
+	    int backward = length - 1;
+	    while (backward > forward) {
+	        char forwardChar = answer.charAt(forward++);
+	        char backwardChar = answer.charAt(backward--);
+	        if (forwardChar != backwardChar)
+	            return false;
+	    }
+	    return true;
 	}
 
 	/**

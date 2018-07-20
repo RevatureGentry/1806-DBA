@@ -121,13 +121,13 @@ public class DbaJavaAssessment {
 	}
 	
 	/* Is the String a Palindrome */
-	@Test @Ignore
+	@Test
 	public void isTheStringAPalindrome() {
 		assertTrue(WorkingWithStrings.isPalindrome("racecar"));
 		assertTrue(WorkingWithStrings.isPalindrome("a man. a plan. a canal. panama"));
 	}
 	
-	@Test @Ignore
+	@Test
 	public void isTheStringAPalindromeNegative() {
 		assertFalse(WorkingWithStrings.isPalindrome("William"));
 		assertFalse(WorkingWithStrings.isPalindrome(null));
