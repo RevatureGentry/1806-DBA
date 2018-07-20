@@ -12,9 +12,13 @@ public class Calculator {
 	 */
 
 	public static Integer factorial(int a) {
-
-		return null;
-	}
+		if (a == 0)    
+			return 1;    
+		else if (a < 0)
+			throw new IllegalArgumentException();
+		else
+		    return(a * factorial(a-1));	
+		}
 
 	/**
 	 * @author William
@@ -26,8 +30,17 @@ public class Calculator {
 	 */
 
 	public static Integer iterativeFactorial(int a) {
-
-		return null;
+		int number = 1;
+		if (a < 0 ) {
+			throw new IllegalArgumentException();
+		}
+		if (a == 0) {
+			return 1;
+		}
+		for(int i = a ; i>0 ; i--){
+			number*= i;
+		}
+		return number;
 	}
 
 	/**
@@ -40,8 +53,14 @@ public class Calculator {
 	 *         at 1
 	 */
 	public static Integer termInFibonacciSequence(int a) {
-		
-		return null;
+		if (a < 0 )
+			throw new IllegalArgumentException();
+		else if (a == 0) 
+			return 0;
+		else if (a == 1 || a ==2) 
+			return 1;
+		else
+		    return termInFibonacciSequence(a - 1) + termInFibonacciSequence(a - 2);
 	}
 
 	/**
@@ -54,9 +73,21 @@ public class Calculator {
 	 *         at 1
 	 */
 	public static Integer termInFibonacciSequenceIteratively(int a) {
+		if (a < 0 ) {
+			throw new IllegalArgumentException();}
+		if (a <= 2) {
+			return 1;}
 		
-		return null;
-	}
+		int fib = 1;
+		int prevFib = 1;
+		
+		for (int i = 3; i <= a; i++) {
+			int temp = fib;
+			fib += prevFib;
+			prevFib = temp;
+		}
+			return fib;
+		}
 
 	/**
 	 * @author William
@@ -68,8 +99,13 @@ public class Calculator {
 	 */
 
 	public static Integer maxInArray(int... array) {
-
-		return null;
+		if (array.length == 0) {
+			return 0;
+		}
+		int max = array[0];
+		for (int i = 1; i < array.length; i++ )
+			max = Math.max(array[i], max);
+		return max; 
 	}
 
 	/**
@@ -82,8 +118,16 @@ public class Calculator {
 	 */
 
 	public static Integer minInArray(int... array) {
-		
-		return null;
+		if (array.length == 0) {
+			return 0;
+		}
+		int min = array[0];
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] < min) {
+				min = array[i];
+			}
+		}
+		return min;
 	}
 
 	/**
@@ -96,8 +140,14 @@ public class Calculator {
 	 */
 
 	public static Integer sumOfArray(Integer... array) {
-		
-		return null;
+		if (array.length == 0) {
+			return 0;
+		}
+		int sum = 0;
+		for (int i : array) {
+			sum += i;
+		}
+		return sum;
 	}
 
 	/**
@@ -110,7 +160,24 @@ public class Calculator {
 	 */
 	
 	public static Boolean isPrime(int input) {
+		if (input < 0) {
+			throw new IllegalArgumentException();}
 		
-		return null;
+		int i = 0;
+		int m = 0;
+		
+		m = input / 2;
+		
+		if (input == 0 | input == 1) {
+			return false;
+		}
+		else {
+			for (i = 2; i <= m; i++) {
+				if (input % i == 0) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 }

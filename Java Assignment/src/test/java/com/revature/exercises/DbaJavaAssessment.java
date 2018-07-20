@@ -16,7 +16,7 @@ public class DbaJavaAssessment {
 	
 	/* Factorial Unit Tests */
 	
-	@Test @Ignore
+	@Test
 	public void calculatorFactorialBaseFunctionality() {
 		assertEquals(Calculator.factorial(0), new Integer(1));
 		assertEquals(Calculator.factorial(1), new Integer(1));
@@ -24,7 +24,7 @@ public class DbaJavaAssessment {
 		assertEquals(Calculator.iterativeFactorial(1), Calculator.factorial(1));
 	}
 	
-	@Test @Ignore
+	@Test
 	public void calculatorFactorialFunctionality() {
 		assertEquals(Calculator.factorial(5), new Integer(120));
 		assertEquals(Calculator.iterativeFactorial(5), Calculator.factorial(5));
@@ -32,19 +32,19 @@ public class DbaJavaAssessment {
 		assertEquals(Calculator.iterativeFactorial(12), Calculator.factorial(12));
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
+	@Test(expected=IllegalArgumentException.class)
 	public void calculatorFactorialFunctionalityWhenNegativeNumberProvided() {
 		Calculator.factorial(-10);
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
+	@Test(expected=IllegalArgumentException.class)
 	public void calculatorIterativeFactorialFunctionalityWhenNegativeNumberProvided() {
 		Calculator.iterativeFactorial(-10);
 	}
 	
 	/* Fibonacci Unit Tests */
 	
-	@Test @Ignore
+	@Test
 	public void calculatorFibonacciBaseFunctionality() {
 		assertEquals(Calculator.termInFibonacciSequence(1), new Integer(1));
 		assertEquals(Calculator.termInFibonacciSequence(2), new Integer(1));
@@ -52,71 +52,70 @@ public class DbaJavaAssessment {
 		assertEquals(Calculator.termInFibonacciSequenceIteratively(2), new Integer(1));
 	}
 	
-	@Test @Ignore
+	@Test
 	public void calculatorFibonacciFuncationality() {
-		assertTrue(Calculator.termInFibonacciSequence(5) == 5);
-		assertTrue(Calculator.termInFibonacciSequence(13) == 233);
-		assertTrue(Calculator.termInFibonacciSequence(32) == 2178309);
-		assertTrue(Calculator.termInFibonacciSequence(5) == Calculator.termInFibonacciSequenceIteratively(5));
-		assertTrue(Calculator.termInFibonacciSequence(12) == Calculator.termInFibonacciSequenceIteratively(12));
-		assertTrue(Calculator.termInFibonacciSequence(32) == Calculator.termInFibonacciSequenceIteratively(32));
+		assertTrue(Calculator.termInFibonacciSequence(5).equals(5));
+		assertTrue(Calculator.termInFibonacciSequence(13).equals(233));
+		assertTrue(Calculator.termInFibonacciSequence(32).equals(2178309));
+		assertTrue(Calculator.termInFibonacciSequence(12).equals(Calculator.termInFibonacciSequenceIteratively(12)));
+		assertTrue(Calculator.termInFibonacciSequence(32).equals(Calculator.termInFibonacciSequenceIteratively(32)));
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
+	@Test(expected=IllegalArgumentException.class)
 	public void calculatorFibonacciFunctionalityWhenNegativeNumberProvided() {
 		Calculator.termInFibonacciSequence(-10);
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
-	public void calculatorIterativeFibonacciFunctionalityWhenNegativeNumberProvided() {
+	@Test(expected=IllegalArgumentException.class)
+	public void CALCULATORITERATIVEFIBONACCIFUNCTIONALITYWHENNEGATIVENUMBERPROVIDED() {
 		Calculator.termInFibonacciSequenceIteratively(-10);
 	}
 	
 	
 	/* Maximum Element in Array */
 	
-	@Test @Ignore
+	@Test
 	public void calculatorMaximumNumberInArrayFunctionality() {
 		assertEquals(Calculator.maxInArray(1, 2, 3, 4, 5), new Integer(5));
 	}
 	
-	@Test @Ignore
+	@Test
 	public void calculatorMaximumNumberInArrayWhenNoArrayProvidedFunctionality() {
 		assertEquals(Calculator.maxInArray(), new Integer(0));
 	}
 	
 	/* Minimum Element in Array */
 	
-	@Test @Ignore
+	@Test
 	public void calculatorMinimumNumberInArrayFunctionality() {
 		assertEquals(Calculator.minInArray(1, 2, 3, 4, 5), new Integer(1));
 	}
 	
-	@Test @Ignore
+	@Test
 	public void calculatorMinimumNumberInArrayWhenNoArrayProvidedFunctionality() {
 		assertEquals(Calculator.minInArray(), new Integer(0));
 	}
 	
 	/* Sum of Elements in Array */
 	
-	@Test @Ignore
+	@Test
 	public void calculatorSumOfIntegersFunctionality() {
 		assertEquals(Calculator.sumOfArray(1, 2, 3, 4, 5), new Integer(15));
 	}
 	
-	@Test @Ignore
+	@Test
 	public void calculatorSumFunctionalityWhenNoArrayProvided() {
 		assertEquals(Calculator.sumOfArray(), new Integer(0));
 	}
 	
-	@Test @Ignore
+	@Test
 	public void calculatorIsPrimeFunctionality() {
 		assertTrue(Calculator.isPrime(523));
 		assertTrue(Calculator.isPrime(10007));
 		assertFalse(Calculator.isPrime(900));
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
+	@Test(expected=IllegalArgumentException.class)
 	public void calculatorIsPrimeFunctionalityNegative() {
 		Calculator.isPrime(-10);
 	}
