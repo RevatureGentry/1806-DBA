@@ -137,27 +137,27 @@ public class DbaJavaAssessment {
 	
 	/* Reverse a string test */
 	
-	@Test @Ignore
+	@Test
 	public void reverseTheString() {
 		assertEquals(WorkingWithStrings.reverse("William"), "mailliW");
 		assertEquals(WorkingWithStrings.reverse("racecar"), "racecar");
 		assertEquals(WorkingWithStrings.reverse("Java"), "avaJ");
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
+	@Test(expected=IllegalArgumentException.class)
 	public void reverseTheStringNegative() {
 		WorkingWithStrings.reverse(null);
 	}
 	
 	/* Count b's test */
 	
-	@Test @Ignore
+	@Test
 	public void countBs() {
 		assertEquals(WorkingWithStrings.countBs("Briefly, the bubbles began to rise"), new Integer(5));
 		assertEquals(WorkingWithStrings.countBs("This statement doesn't have what you are looking for."), new Integer(0));
 	}
 	
-	@Test @Ignore
+	@Test
 	public void countCharacters() {
 		assertEquals(WorkingWithStrings.countCharacter("JavaScript is for browser programming, Java is for server programming", 'J'), new Integer(2));
 		assertEquals(WorkingWithStrings.countCharacter("JavaScript is for browser programming, Java is for server programming", 'm'), new Integer(4));
@@ -165,21 +165,21 @@ public class DbaJavaAssessment {
 	
 	/* Remove Duplicates */
 	
-	@Test @Ignore
+	@Test
 	public void removeDuplicateCharacters() {
 		assertEquals(WorkingWithStrings.removeDuplicateCharacters("Java"), "Jav");
 		assertEquals(WorkingWithStrings.removeDuplicateCharacters("William"), "Wilam");
 		assertEquals(WorkingWithStrings.removeDuplicateCharacters("Continuous Integration"), "Contius egra");
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
+	@Test(expected=IllegalArgumentException.class)
 	public void removeDuplicateCharactersNegative() {
 		WorkingWithStrings.removeDuplicateCharacters(null);
 	}
 	
 	/* Unique Characters In String */
 	
-	@Test @Ignore
+	@Test
 	public void onlyUniqueCharactersInString() {
 		assertTrue(WorkingWithStrings.uniqueCharactersOnly("SQL"));
 		assertTrue(WorkingWithStrings.uniqueCharactersOnly("Watson"));
@@ -187,7 +187,7 @@ public class DbaJavaAssessment {
 		assertFalse(WorkingWithStrings.uniqueCharactersOnly("William"));
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
+	@Test(expected=IllegalArgumentException.class)
 	public void onlyUniqueCharactersInStringNegative() {
 		WorkingWithStrings.uniqueCharactersOnly(null);
 	}

@@ -41,8 +41,14 @@ public class WorkingWithStrings {
 	 */
 
 	public static String reverse(String input) {
-
-		return null;
+		if (input == null )
+			throw new IllegalArgumentException();
+		char string[] = input.toCharArray();  
+	    String reverse = "";  
+	    for(int i = string.length-1 ; i>=0 ; i--){  
+	    	reverse += string[i];  
+	    }  
+	    return reverse; 
 	}
 
 	/**
@@ -56,8 +62,9 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Integer countBs(String input) {
-
-		return null;
+		String lowerCase = input.toLowerCase();
+		int count = lowerCase.length() - lowerCase.replace("b", "").length();
+		return count;
 	}
 
 	/**
@@ -73,8 +80,8 @@ public class WorkingWithStrings {
 	 */
 
 	public static Integer countCharacter(String input, char character) {
-
-		return null;
+		int count = input.length() - input.replace(Character.toString(character), "").length();
+		return count;
 	}
 
 	/**
@@ -88,8 +95,30 @@ public class WorkingWithStrings {
 	 */
 
 	public static String removeDuplicateCharacters(String input) {
+		if (input == null)
+			throw new IllegalArgumentException();
+		
+		char[] characters = input.toCharArray();
+		int length = characters.length;
 
-		return null;
+		for (int i = 0; i < length; i++) {
+            for (int j = i + 1; j < length; j++) {
+                if (Character.toString(characters[i]).equalsIgnoreCase(Character.toString(characters[j]))) {
+                    int temp = j;
+ 
+                    for (int k = temp; k < length - 1; k++) {
+                    	characters[k] = characters[k + 1];
+                    }
+                    j--;
+                    length--;
+ 
+                }
+            }
+        }
+		String noDuplicates = new String(characters);
+		noDuplicates = noDuplicates.substring(0, length);
+		return noDuplicates;
+		
 	}
 
 	/**
@@ -103,8 +132,13 @@ public class WorkingWithStrings {
 	 */
 	
 	public static Boolean uniqueCharactersOnly(String input) {
-		
-		return null;
+		if (input == null)
+			throw new IllegalArgumentException();
+        for (int i=0; i<input.length(); i++)
+            for (int j=i+1; j<input.length(); j++)
+                if (input.charAt(i) == input.charAt(j))
+                    return false;
+        return true;
 	}
 
 }
