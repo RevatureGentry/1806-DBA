@@ -7,15 +7,15 @@ public class Polymorphism extends Object {
 
 	public static void main(String[] args) {
 		// Demonstrate via Reflection that this class inherits from java.lang.Object
-//		for (Method m : Polymorphism.class.getMethods()) {
-//			if (m.getName().equals("add")) {
-//				System.out.println("Name: " + m.getName());
-//				System.out.println("Return Type: " + m.getReturnType());
-//				System.out.print("Parameters: ");
-//				Arrays.asList(m.getParameters()).forEach(param -> System.out.print(param + " "));
-//				System.out.println("\n");
-//			}
-//		}
+		for (Method m : Polymorphism.class.getMethods()) {
+			if (m.getName().equals("add")) {
+				System.out.println("Name: " + m.getName());
+				System.out.println("Return Type: " + m.getReturnType());
+				System.out.print("Parameters: ");
+				Arrays.asList(m.getParameters()).forEach(param -> System.out.print(param + " "));
+				System.out.println("\n");
+			}
+		}
 		add(10, 20);
 		add(10, 21.1);
 		add("William", "loves Java!");

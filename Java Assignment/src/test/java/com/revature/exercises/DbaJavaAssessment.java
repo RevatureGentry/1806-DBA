@@ -44,7 +44,7 @@ public class DbaJavaAssessment {
 	
 	/* Fibonacci Unit Tests */
 	
-	@Test @Ignore
+	@Test 
 	public void calculatorFibonacciBaseFunctionality() {
 		assertEquals(Calculator.termInFibonacciSequence(1), new Integer(1));
 		assertEquals(Calculator.termInFibonacciSequence(2), new Integer(1));
@@ -52,7 +52,7 @@ public class DbaJavaAssessment {
 		assertEquals(Calculator.termInFibonacciSequenceIteratively(2), new Integer(1));
 	}
 	
-	@Test @Ignore
+	@Test 
 	public void calculatorFibonacciFuncationality() {
 		assertTrue(Calculator.termInFibonacciSequence(5) == 5);
 		assertTrue(Calculator.termInFibonacciSequence(13) == 233);
