@@ -11,9 +11,13 @@ public class Calculator {
 	 *         number recursively
 	 */
 
-	public static Integer factorial(int a) {
-
-		return null;
+	public static Integer factorial(int a) throws IllegalArgumentException {
+		if (a < 0) {
+			throw new IllegalArgumentException();
+		} else if (a < 2) {
+			return 1;
+		}
+		return a * factorial(a - 1);
 	}
 
 	/**
@@ -25,9 +29,15 @@ public class Calculator {
 	 *         number iteratively
 	 */
 
-	public static Integer iterativeFactorial(int a) {
-
-		return null;
+	public static Integer iterativeFactorial(int a) throws IllegalArgumentException {
+		if (a < 0) {
+			throw new IllegalArgumentException();
+		}
+		int prod = 1;
+		for (int i = a; i > 1; i--) {
+			prod *= i;
+		}
+		return prod;
 	}
 
 	/**
@@ -39,9 +49,16 @@ public class Calculator {
 	 *         Sequence, recursively. For this method, the Fibonacci sequence starts
 	 *         at 1
 	 */
-	public static Integer termInFibonacciSequence(int a) {
-		
-		return null;
+	public static Integer termInFibonacciSequence(int a) throws IllegalArgumentException {
+		if (a < 0) {
+			throw new IllegalArgumentException();
+		} else if (a == 0) {
+			return 0;
+		} else if (a <= 2) {
+			return 1;
+		} else {
+			return termInFibonacciSequence(a - 1) + termInFibonacciSequence(a - 2);
+		}
 	}
 
 	/**
@@ -53,9 +70,21 @@ public class Calculator {
 	 *         Sequence, iteratively. For this method, the Fibonacci sequence starts
 	 *         at 1
 	 */
-	public static Integer termInFibonacciSequenceIteratively(int a) {
-		
-		return null;
+	public static Integer termInFibonacciSequenceIteratively(int a) throws IllegalArgumentException {
+		if (a < 0) {
+			throw new IllegalArgumentException();
+		}
+
+		int prev = 0;
+		int curr = 1;
+		int result = 1;
+		for (int i = 2; i <= a; i++) {
+			result = prev + curr;
+			prev = curr;
+			curr = result;
+		}
+
+		return result;
 	}
 
 	/**
@@ -68,8 +97,14 @@ public class Calculator {
 	 */
 
 	public static Integer maxInArray(int... array) {
+		int max = 0;
+		for (int e : array) {
+			if (e > max) {
+				max = e;
+			}
+		}
 
-		return null;
+		return max;
 	}
 
 	/**
@@ -82,8 +117,20 @@ public class Calculator {
 	 */
 
 	public static Integer minInArray(int... array) {
-		
-		return null;
+		int min = 0;
+
+		if (array.length == 0) {
+			return 0;
+		}
+
+		min = array[0];
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] < min) {
+				min = array[i];
+			}
+		}
+
+		return min;
 	}
 
 	/**
@@ -97,7 +144,12 @@ public class Calculator {
 
 	public static Integer sumOfArray(Integer... array) {
 		
-		return null;
+		int sum = 0;
+		for (int x : array) {
+			sum += x;
+		}
+		
+		return sum;
 	}
 
 	/**
@@ -108,9 +160,19 @@ public class Calculator {
 	 *         Write an implementation that determines whether the provided input is
 	 *         a prime number or not
 	 */
-	
-	public static Boolean isPrime(int input) {
+
+	public static Boolean isPrime(int input) throws IllegalArgumentException {
+		if (input < 0) {
+			throw new IllegalArgumentException();
+		} else if (input <= 1) {
+			return false;
+		}
+		for (int i = 2; i < input; i++) {
+			if(input % i == 0) {
+				return false;
+			}
+		}
 		
-		return null;
+		return true;
 	}
 }

@@ -12,8 +12,21 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Boolean isPalindrome(String input) {
-
-		return null;
+		
+		if (input == null) {
+			return false;
+		}
+		
+		input = input.replaceAll("\\W", "");
+		
+		//System.out.println(input);
+		for (int i = 0; i < (input.length() / 2); i++) {
+			if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	/**
@@ -28,9 +41,18 @@ public class WorkingWithStrings {
 	 *         CHALLENGE: Reverse the String using ONLY {@link String#charAt(int)}
 	 */
 
-	public static String reverse(String input) {
-
-		return null;
+	public static String reverse(String input) throws IllegalArgumentException {
+		
+		if (input == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		String result = "";
+		for (int i = input.length() - 1; i >= 0; i--) {
+			result += input.charAt(i);
+		}
+		
+		return result;
 	}
 
 	/**
@@ -44,8 +66,8 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Integer countBs(String input) {
-
-		return null;
+		
+		return input.length() - input.replaceAll("[bB]","").length();
 	}
 
 	/**
@@ -61,8 +83,8 @@ public class WorkingWithStrings {
 	 */
 
 	public static Integer countCharacter(String input, char character) {
-
-		return null;
+		
+		return input.length() - input.replace("" + character,"").length();
 	}
 
 	/**
@@ -75,9 +97,20 @@ public class WorkingWithStrings {
 	 *         `Programming`, the method should return `Progamin`
 	 */
 
-	public static String removeDuplicateCharacters(String input) {
-
-		return null;
+	public static String removeDuplicateCharacters(String input) throws IllegalArgumentException {
+		
+		if (input == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		String result = "";
+		
+		for (int i = 0; i < input.length(); i++) {
+			if (!result.toLowerCase().contains((String.valueOf(input.charAt(i))).toLowerCase())) {
+				result += input.charAt(i);
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -90,9 +123,13 @@ public class WorkingWithStrings {
 	 *         return false
 	 */
 	
-	public static Boolean uniqueCharactersOnly(String input) {
+	public static Boolean uniqueCharactersOnly(String input) throws IllegalArgumentException {
 		
-		return null;
+		try {
+			return input.equals(removeDuplicateCharacters(input));
+		} catch (IllegalArgumentException e) {
+			throw e;
+		}
 	}
 
 }
