@@ -1,0 +1,22 @@
+h3 {
+    color: springgreen;
+}
+
+/* This is the most general way to reference our li's */
+div li {
+    font-family: cursive;
+    color: navy;
+}
+
+/* This is a more specific way */
+.green {
+    font-family: fantasy;
+    color: green;
+}
+
+
+/* This is most specific */
+#coffee {
+    font-family: monospace;
+    color: brown;
+}
