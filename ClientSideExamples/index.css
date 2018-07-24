@@ -1,0 +1,18 @@
+h3 {
+    color: springgreen;
+}
+
+div li {
+    font-family: cursive;
+    color: navy
+}
+
+.green {
+    font-family: fantasy;
+    color: green;
+}
+
+#coffee {
+    font-family: monospace;
+    color: brown;
+}

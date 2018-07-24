@@ -1,0 +1,17 @@
+Create a database that represents the following:
+
+Doctor can see a patient via different appointments
+Doctors may or may not prescribe medicine and/or treatment within an appointment
+Doctors can record symptoms, diagnoses, and notes associated with a patient’s visit
+	- Have at least 5 patients, 3 doctors, and 20 appointments
+	- Include 10 diagnoses with up to 4 symptoms each
+
+Doctor can view his appointments on the schedule for today.
+Doctor can view all his appointments within a certain date range.
+Patients can view future appointments and appointment history.
+Based on the selected symptoms, a procedure would suggest a possible diagnosis if >65% of symptoms match (store combinations of symptoms and diagnoses in a junction table)
+Based on diagnosis find the appropriate medicine or treatment 
+
+Design and implement at least 3 additional use cases to interact with the system.
+
+Be able to run these queries/procedures for a demo. Prepare a short powerpoint, including the database ERD in conjunction with the demo. Be prepared to present on Monday in place of your QC.

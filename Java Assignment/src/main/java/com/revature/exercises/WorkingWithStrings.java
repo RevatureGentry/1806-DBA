@@ -48,10 +48,23 @@ public class WorkingWithStrings {
 		}
 		
 		String result = "";
-		for (int i = input.length() - 1; i >= 0; i--) {
-			result += input.charAt(i);
+		int i = 0;
+		
+		while (true) {
+			try {
+				input.charAt(i);
+			} catch (StringIndexOutOfBoundsException e) {
+				break;
+			}
+			i++;
 		}
 		
+		i--;
+		
+		while (i >= 0) {
+			result += input.charAt(i);
+			i--;
+		}
 		return result;
 	}
 
@@ -110,6 +123,7 @@ public class WorkingWithStrings {
 				result += input.charAt(i);
 			}
 		}
+		
 		return result;
 	}
 
@@ -123,7 +137,7 @@ public class WorkingWithStrings {
 	 *         return false
 	 */
 	
-	public static Boolean uniqueCharactersOnly(String input) throws IllegalArgumentException {
+	public static Boolean uniqueCharactersOnly(String input) {
 		
 		try {
 			return input.equals(removeDuplicateCharacters(input));
