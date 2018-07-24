@@ -13,17 +13,17 @@ public class General {
 	 */
 	public static void fizzBuzz() {
 		int n = 100;
-		
-        	for (int i=1; i<=n; i++){
-        		if (i%15==0)                                   
-                		System.out.print("FizzBuzz" + "\r\n");
-        		else if (i%5==0)
-                		System.out.print("Buzz" + "\r\n");
-            		else if (i%3==0)     
-                		System.out.print("Fizz" + "\r\n");
-            		else 
-                		System.out.print(i+"\r\n");
-        	}	
+	
+    	for (int i=1; i<=n; i++){
+    		if (i%3 == 0 && i%5 == 0)                                   
+        		System.out.print("FizzBuzz" + "\r\n");
+    		else if (i%5==0)
+    			System.out.print("Buzz" + "\r\n");
+    		else if (i%3==0)     
+        		System.out.print("Fizz" + "\r\n");
+    		else 
+        		System.out.print(i+"\r\n");
+		}	
 	}
 
 	/**
@@ -42,15 +42,14 @@ public class General {
 		
 		int rows = nthRow;
 
-	    	for(int i =0;i<rows;i++) {
-	       		int number = 1;
-	        	System.out.format("%"+(rows-i)*2+"s","");
-	        	for(int j=0;j<=i;j++) {
-	             		System.out.format("%4d",number);
-	             		number = number * (i - j) / (j + 1);
-	        }
+    	for(int i =0;i<rows;i++) {
+       		int number = 1;
+       		for(int j=0;j<=i;j++) {
+         		System.out.print(number + " ");
+         		number = number * (i - j) / (j + 1);
+        	}
 	        System.out.println();
-	    }	
+    	}	
 	}
 
 	/**
