@@ -195,7 +195,7 @@ public class DbaJavaAssessment {
 	
 	/* General tests */
 	
-	@Test @Ignore
+	@Test
 	public void testFizzBuzz() {
 		log.clearLog();
 		log.mute().enableLog();
@@ -323,7 +323,7 @@ public class DbaJavaAssessment {
 				"1 11 55 165 330 462 462 330 165 55 11 1 \r\n", log.getLog());
 	}
 	
-	@Test(expected=IllegalArgumentException.class) @Ignore
+	@Test(expected=IllegalArgumentException.class)
 	public void pascalsTriangleWithNegativeNumberSupplied() {
 		General.printPascalsTriangle(-10);
 	}
