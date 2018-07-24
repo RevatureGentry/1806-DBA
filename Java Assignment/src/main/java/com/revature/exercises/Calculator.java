@@ -12,8 +12,13 @@ public class Calculator {
 	 */
 
 	public static Integer factorial(int a) {
-
-		return null;
+		if (a < 0) {
+			throw new IllegalArgumentException("Number is negative");
+		}
+		if (a == 0)
+			return 1;
+		else
+			return (a * factorial(a - 1));
 	}
 
 	/**
@@ -26,8 +31,15 @@ public class Calculator {
 	 */
 
 	public static Integer iterativeFactorial(int a) {
+		int i, f = 1;
 
-		return null;
+		if (a < 0) {
+			throw new IllegalArgumentException("Number is negative");
+		}
+		for (i = 1; i <= a; i++) {
+			f = f * i;
+		}
+		return f;
 	}
 
 	/**
@@ -40,8 +52,16 @@ public class Calculator {
 	 *         at 1
 	 */
 	public static Integer termInFibonacciSequence(int a) {
-		
-		return null;
+		if (a < 0) {
+			throw new IllegalArgumentException("Number is negative");
+		}
+		if (a == 0)
+			return 0;
+		else if (a == 1)
+			return 1;
+		else
+			return termInFibonacciSequence(a - 1) + termInFibonacciSequence(a - 2);
+
 	}
 
 	/**
@@ -54,8 +74,21 @@ public class Calculator {
 	 *         at 1
 	 */
 	public static Integer termInFibonacciSequenceIteratively(int a) {
-		
-		return null;
+		if (a < 0) {
+			throw new IllegalArgumentException("Number is negative");
+		}
+		int f[] = new int[a + 2];
+		f[0] = 0;
+		f[1] = 1;
+		if (a < 2)
+			return f[a];
+		else {
+
+			for (int i = 2; i <= a; i++) {
+				f[i] = f[i - 1] + f[i - 2];
+			}
+			return f[a];
+		}
 	}
 
 	/**
@@ -68,8 +101,17 @@ public class Calculator {
 	 */
 
 	public static Integer maxInArray(int... array) {
+		if (array.length < 1) {
+			return 0;
+		}
+		int max = array[0];
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] > max) {
+				max = array[i];
+			}
 
-		return null;
+		}
+		return max;
 	}
 
 	/**
@@ -82,8 +124,17 @@ public class Calculator {
 	 */
 
 	public static Integer minInArray(int... array) {
-		
-		return null;
+		if (array.length < 1) {
+			return 0;
+		}
+		int min = array[0];
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] < min) {
+				min = array[i];
+			}
+
+		}
+		return min;
 	}
 
 	/**
@@ -96,8 +147,14 @@ public class Calculator {
 	 */
 
 	public static Integer sumOfArray(Integer... array) {
-		
-		return null;
+		if (array.length < 1) {
+			return 0;
+		}
+		int sum = array[0];
+		for (int i = 1; i < array.length; i++) {
+			sum += array[i];
+		}
+		return sum;
 	}
 
 	/**
@@ -108,9 +165,15 @@ public class Calculator {
 	 *         Write an implementation that determines whether the provided input is
 	 *         a prime number or not
 	 */
-	
+
 	public static Boolean isPrime(int input) {
-		
-		return null;
+		if (input < 0) {
+			throw new IllegalArgumentException("Number is negative");
+		}
+		for (int i = 2; i < input; i++) {
+			if (input % i == 0)
+				return false;
+		}
+		return true;
 	}
 }

@@ -12,8 +12,18 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Boolean isPalindrome(String input) {
-
-		return null;
+		if (input == null) {
+			return false;
+		}
+		String strip = input.replaceAll("[^a-zA-Z]", "");
+		String rev = "";
+		for (int i = strip.length() - 1; i >= 0; i--) {
+			rev = rev + strip.charAt(i);
+		}
+		if (strip.equals(rev))
+			return true;
+		else
+			return false;
 	}
 
 	/**
@@ -29,8 +39,16 @@ public class WorkingWithStrings {
 	 */
 
 	public static String reverse(String input) {
+		if (input == null) {
+			throw new IllegalArgumentException("Incorrect Input");
+		}
+		String strip = input.replaceAll("[^a-zA-Z]", "");
+		String rev = "";
+		for (int i = strip.length() - 1; i >= 0; i--) {
+			rev = rev + strip.charAt(i);
+		}
 
-		return null;
+		return rev;
 	}
 
 	/**
@@ -44,8 +62,13 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Integer countBs(String input) {
-
-		return null;
+		int c = 0;
+		for (int i = input.length() - 1; i >= 0; i--) {
+			char ch = input.charAt(i);
+			if (ch == 'b' || ch == 'B')
+				c++;
+		}
+		return c;
 	}
 
 	/**
@@ -61,8 +84,13 @@ public class WorkingWithStrings {
 	 */
 
 	public static Integer countCharacter(String input, char character) {
-
-		return null;
+		int c = 0;
+		for (int i = input.length() - 1; i >= 0; i--) {
+			char ch = input.charAt(i);
+			if (ch == character)
+				c++;
+		}
+		return c;
 	}
 
 	/**
@@ -76,8 +104,26 @@ public class WorkingWithStrings {
 	 */
 
 	public static String removeDuplicateCharacters(String input) {
+		if (input == null) {
+			throw new IllegalArgumentException("Incorrect Input");
+		}
+		int i;
+		int j;
+		String store = "";
 
-		return null;
+		for (i = 1; i < input.length(); i++) {
+			int count = 1;
+
+			for (j = i + 1; j < input.length(); j++) {
+				if (input.charAt(i) == input.charAt(j)) {
+					count++;
+				}
+			}
+			if (count == 1) {
+				store += input.charAt(i);
+			}
+		}
+		return store;
 	}
 
 	/**
@@ -89,10 +135,19 @@ public class WorkingWithStrings {
 	 *         contains only unique letters or not. For example, `Revature` should
 	 *         return false
 	 */
-	
+
 	public static Boolean uniqueCharactersOnly(String input) {
-		
-		return null;
+		if (input == null) {
+			throw new IllegalArgumentException("Input can't be NULL");
+		}
+		for (int i = 0; i < input.length() - 1; i++) {
+			for (int j = i + 1; j < input.length(); j++) {
+				if (input.charAt(i) == input.charAt(j)) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 }
