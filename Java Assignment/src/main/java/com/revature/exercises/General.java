@@ -12,7 +12,18 @@ public class General {
 	 *         the number is divisible by both, print "FizzBuzz"
 	 */
 	public static void fizzBuzz() {
+	int n = 100;
 		
+        for (int i=1; i<=n; i++){
+        	if (i%15==0)                                   
+                	System.out.print("FizzBuzz" + "\r\n");
+        	else if (i%5==0)
+                	System.out.print("Buzz" + "\r\n");
+            	else if (i%3==0)     
+                	System.out.print("Fizz" + "\r\n");
+            	else 
+                	System.out.print(i+"\r\n");
+        	}	
 	}
 
 	/**
@@ -38,7 +49,17 @@ public class General {
 	 */
 
 	public static Integer reverseNumber(int toBeReversed) {
+		long reversedNum = 0;
+		long input_long = toBeReversed;
 
-		return null;
+	    	while (input_long != 0) {
+	        	reversedNum = reversedNum * 10 + input_long % 10;
+	        	input_long = input_long / 10;
+	    	}
+
+	    	if (reversedNum > Integer.MAX_VALUE || reversedNum < Integer.MIN_VALUE) {
+	        	throw new IllegalArgumentException();
+	    	}
+	    	return (int) reversedNum;
 	}
 }
