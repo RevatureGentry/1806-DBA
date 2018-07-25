@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NewMemberApplication</title>
+</head>
+<body>
+   
+        <div class="w-auto p-3" style="background-color: #dfc5c5;">
+                <br>
+                <br>
+                <br>
+
+                <h1>New Member Information </h1>
+
+                <form id="form1" name="form1" method="post" action="">
+                        <p>First Name<br>
+                        <input type="text" name="name0" id="text"/><br><br>
+                        <p>Last Name<br>
+                        <input type="text" name="name" id="text"/>
+                        <p>Member address<br>
+                            <input type="text" name="name0" id="text"/><br><br>
+                            <p>What member do like for fun: <br>
+                            <input type="text" name="name" id="text"/>
+                        <br>
+                        <br>
+                        <br>
+                   
+                        <form enctype="multipart/form-data" action="uploader.php" method="POST">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                            Choose a picture to upload: <input name="uploadedfile" type="file" /><br />
+                            <input type="submit" value="Upload File" />
+                            </form>
+                        <br>
+                        <br>
+                        <br>
+                                <h4>Dear New Member,
+                                        It is my pleasure to welcome you to the Revature sport club.
+                                        I enjoyed talking with you last week, and am looking forward to seeing you next week.
+                                        When you arrive, you’ll see me at the reception area.
+                                        I’ll take you to get your ID, show you all interesting placess at aour spot club, 
+                                        and introduce you to the rest of the staff. We’re looking forward see you.
+                                        Welcome to the team!
+                                        Regards,
+                                         Ahmed Babikir
+                                        (123) 456-7890</h4>
+
+
+
+                        <input type="submit" name="Enter" id="Enter" value="Enter" />
+                        </form>
+        
+        
+        
+        
+        </div>
+
+        <div class="fixed-bottom">
+                <div class="bg-info clearfix">
+                        <button type="button" class="btn btn-secondary float-left"><a href='#top'>TOP</a></button>
+                        <button type="button" class="btn btn-secondary float-right">DOWN</button>
+                      </div>
+                       
+                    </div>  
+</body>
+</html>
