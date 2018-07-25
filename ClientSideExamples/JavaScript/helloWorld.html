@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="javascript-is-forgiving">
+        <h1><strong>JAVASCRIPT IS FORGIVING</strong></h1>
+        <p>For example, every line in JavaScript needs to be terminated with a 
+            semicolon. However, if we forget to include one, the JavaScript engine
+            will inject one for us where it belives it fits
+        </p>
+    </div>
+
+    <div class="data-types">
+        <h2>There are 6 <em>primitive</em> data types in JavaScript. They are</h2>
+        <ol>
+            <li>string</li>
+            <li>boolean</li>
+            <li>number (64-bit floating point)</li>
+            <li>null</li>
+            <li>undefined</li>
+            <li>Symbol (new in ES6)</li>
+        </ol>
+    </div>
+
+    <div class="new-in-es6">
+        <h2>Template Literal</h2>
+        <p>A template literal is simplified version of injecting JavaScript expressions
+            into strings. To use a Template Literal, we use the ES6 backticks (``)
+             and inject our JavaScript inside ${}
+        </p>
+        <h2>Block Scope</h2>
+        <p>The keywords <em>let</em> and <em>const</em> were introduced to help 
+         with the pitfalls of using the <em>var</em> keyword to declare variables</p>
+    </div>
+
+    <div class="truthy-and-falsy">
+        <h2><em>Falsy</em> refers to values that are not the boolean false, 
+        but evaluate to false. Values that are falsy include:</h2>
+        <ul>
+            <li>0, The Number Zero</li>
+            <li>"", The Empty String</li>
+            <li>null</li>
+            <li>undefined</li>
+            <li>NaN</li>
+        </ul>
+        <p>Note: null and undefined do not have == equality with any value except
+             each other. NaN is not == or === to anything, including itself
+        </p>
+        <h2><em>Truty</em> refers to values that are not the boolean true, 
+         but evaluate to true. This is every other value except those listed above 
+        </h2>
+    </div>
+
+    <div class="variable-scopes">
+        <h2>There are 3 variables scopes in JavaScript</h2>
+        <ol>
+            <li>Global</li>
+            <li>Local</li>
+            <li>Block - defined with the keywords <em>let</em> and <em>const</em> (introduced in ES6)</li>
+        </ol>
+    </div>
+
+
+    <!-- A VERY COMMON PAIN POINT -->
+    <!-- You must link you JS file to your HTML for any of the code to be connected -->
+    <script src="./someOtherFile.js"></script>
+    <script src='./helloWorld.js'></script>
+</body>
+</html>
