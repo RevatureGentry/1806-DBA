@@ -34,6 +34,7 @@
         <h2>Block Scope</h2>
         <p>The keywords <em>let</em> and <em>const</em> were introduced to help 
          with the pitfalls of using the <em>var</em> keyword to declare variables</p>
+         <h2>Arrow Functions</h2>
     </div>
 
     <div class="truthy-and-falsy">
@@ -49,7 +50,7 @@
         <p>Note: null and undefined do not have == equality with any value except
              each other. NaN is not == or === to anything, including itself
         </p>
-        <h2><em>Truty</em> refers to values that are not the boolean true, 
+        <h2><em>Truthy</em> refers to values that are not the boolean true, 
          but evaluate to true. This is every other value except those listed above 
         </h2>
     </div>
@@ -63,10 +64,31 @@
         </ol>
     </div>
 
+    <div class="functions-in-js">
+        <h2>Functions in JavaScript differ from functions in other programming languages in the following ways</h2>
+        <ol>
+            <li><em>Functions</em> inherit from <em>Object</em></li>
+            <li>Functions can be anonymous. By this, we mean that functions can be assigned to variables</li>
+            <li>Functions can be self-invoking. This is achieved by wrapping our function in a set of 
+                 parentheses and having a trailing set of parentheses for any arguments
+            </li>
+            <li>Functions can be hoisted. By this, we mean that functions can be invoked in a script 
+                 before their implementation
+            </li>
+            <li>Arrow functions were introduced in ES6 and they help provide a more Object-Oriented feel 
+                 to JavaScript. Every time we create a declared function in JS, it creates a new value for 
+                 <em>this</em>. If we use an arrow function, it inherits the <em>this</em> value from its 
+                 enclosing context.
+            </li>
+        </ol>
+    </div>
+
 
     <!-- A VERY COMMON PAIN POINT -->
     <!-- You must link you JS file to your HTML for any of the code to be connected -->
     <script src="./someOtherFile.js"></script>
     <script src='./helloWorld.js'></script>
+    <script src="./variableScopes.js"></script>
+    <script src="./functions.js"></script>
 </body>
 </html>
