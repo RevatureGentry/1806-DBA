@@ -14,11 +14,14 @@ public class WorkingWithStrings {
 	public static Boolean isPalindrome(String input) {
 		if (input == null)
 			return false;
+		
 		String lowerCase = input.replaceAll("[^a-zA-Z]","");
 		String answer = lowerCase.toLowerCase();
+		
 	    int length = answer.length();
 	    int forward = 0;
 	    int backward = length - 1;
+	    
 	    while (backward > forward) {
 	        char forwardChar = answer.charAt(forward++);
 	        char backwardChar = answer.charAt(backward--);
@@ -43,8 +46,10 @@ public class WorkingWithStrings {
 	public static String reverse(String input) {
 		if (input == null )
 			throw new IllegalArgumentException();
+		
 		char string[] = input.toCharArray();  
-	    String reverse = "";  
+	    String reverse = ""; 
+	    
 	    for(int i = string.length-1 ; i>=0 ; i--){  
 	    	reverse += string[i];  
 	    }  
@@ -98,24 +103,24 @@ public class WorkingWithStrings {
 		if (input == null)
 			throw new IllegalArgumentException();
 		
-		char[] characters = input.toCharArray();
-		int length = characters.length;
+		char[] letters = input.toCharArray();
+		int length = letters.length;
 
 		for (int i = 0; i < length; i++) {
-            for (int j = i + 1; j < length; j++) {
-                if (Character.toString(characters[i]).equalsIgnoreCase(Character.toString(characters[j]))) {
-                    int temp = j;
+            for (int f = i + 1; f < length; f++) {
+                if (Character.toString(letters[i]).equalsIgnoreCase(Character.toString(letters[f]))) {
+                    int temp = f;
  
-                    for (int k = temp; k < length - 1; k++) {
-                    	characters[k] = characters[k + 1];
+                    for (int n = temp; n < length - 1; n++) {
+                    	letters[n] = letters[n + 1];
                     }
-                    j--;
+                    f--;
                     length--;
  
                 }
             }
         }
-		String noDuplicates = new String(characters);
+		String noDuplicates = new String(letters);
 		noDuplicates = noDuplicates.substring(0, length);
 		return noDuplicates;
 		

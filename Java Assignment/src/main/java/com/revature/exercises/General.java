@@ -48,7 +48,7 @@ public class General {
          		System.out.print(number + " ");
          		number = number * (i - j) / (j + 1);
         	}
-	        System.out.println();
+        System.out.println();
     	}	
 	}
 

@@ -38,7 +38,7 @@ public class Calculator {
 			return 1;
 		}
 		for(int i = a ; i>0 ; i--){
-			number*= i;
+			number *= i;
 		}
 		return number;
 	}
@@ -102,7 +102,9 @@ public class Calculator {
 		if (array.length == 0) {
 			return 0;
 		}
+		
 		int max = array[0];
+		
 		for (int i = 1; i < array.length; i++ )
 			max = Math.max(array[i], max);
 		return max; 
@@ -121,7 +123,9 @@ public class Calculator {
 		if (array.length == 0) {
 			return 0;
 		}
+		
 		int min = array[0];
+		
 		for (int i = 1; i < array.length; i++) {
 			if (array[i] < min) {
 				min = array[i];
@@ -143,7 +147,9 @@ public class Calculator {
 		if (array.length == 0) {
 			return 0;
 		}
+		
 		int sum = 0;
+		
 		for (int i : array) {
 			sum += i;
 		}
