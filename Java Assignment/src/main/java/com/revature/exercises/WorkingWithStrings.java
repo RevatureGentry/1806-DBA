@@ -12,10 +12,24 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Boolean isPalindrome(String input) {
-
-		return null;
+		if (input == null) {
+		return false;
 	}
 
+	    for (int i = input.length() - 1; i > 0; i--) {
+	        if(input.charAt(i) == input.charAt(input.length() - 1 - i)) {
+	            return true;
+	        }
+	        else { 
+		        if(input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+
+	            return false;
+	        }
+	    }
+	    }
+	    return true;
+
+	}
 	/**
 	 * @author William
 	 * @param input
@@ -29,8 +43,14 @@ public class WorkingWithStrings {
 	 */
 
 	public static String reverse(String input) {
-
-		return null;
+		if (input == null) {
+			throw new IllegalArgumentException();
+		}
+		String reverse = "";
+		for(int i = (input.length() - 1); i >= 0; i--) {
+			reverse = reverse + input.charAt(i);
+		}
+		return reverse;
 	}
 
 	/**
@@ -44,8 +64,14 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Integer countBs(String input) {
-
-		return null;
+		int count = 0;
+		for (int i = 0; i < input.length(); i++) {
+			char x = input.charAt(i);
+			if ((x == 'b') || (x == 'B')){
+				count++;
+			}
+		}
+		return count;
 	}
 
 	/**
@@ -61,8 +87,14 @@ public class WorkingWithStrings {
 	 */
 
 	public static Integer countCharacter(String input, char character) {
-
-		return null;
+		int count = 0;
+		for (int i = 0; i < input.length(); i++) {
+			char x = input.charAt(i);
+			if ((x == character)){
+				count++;
+			}
+		}
+		return count;
 	}
 
 	/**
@@ -76,8 +108,19 @@ public class WorkingWithStrings {
 	 */
 
 	public static String removeDuplicateCharacters(String input) {
-
-		return null;
+		if (input == null) {
+			throw new IllegalArgumentException();
+		}
+		 String x = "";
+		 String y = "";
+	        for (int i = 0; i < input.length()-1; i++){
+	            if (input.charAt(i) == input.charAt(i + 1)){
+	                x = input.substring(i, i + 2);
+	                y = input.substring(i, i + 1);
+	                input = removeDuplicateCharacters(input.replace(x, y));
+	            }
+	        }
+	        return input;
 	}
 
 	/**
@@ -90,9 +133,17 @@ public class WorkingWithStrings {
 	 *         return false
 	 */
 	
-	public static Boolean uniqueCharactersOnly(String input) {
-		
-		return null;
+	public static Boolean uniqueCharactersOnly(String input){
+		if (input == null) {
+			throw new IllegalArgumentException();
+		}
+		for (int i = 0; i < input.length(); i++) {
+			for (int j = i + 1; j < input.length(); j++) {
+		if (input.charAt(i) == input.charAt(j)){
+			return false;
+		}
+		}
+		}
+		return true;
 	}
-
 }

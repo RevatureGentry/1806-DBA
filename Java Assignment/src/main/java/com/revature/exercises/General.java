@@ -1,5 +1,6 @@
 package com.revature.exercises;
 
+
 public class General {
 
 	/**
@@ -12,7 +13,21 @@ public class General {
 	 *         the number is divisible by both, print "FizzBuzz"
 	 */
 	public static void fizzBuzz() {
-		
+		for (int i =1; i<= 100; i++) {
+			if ((i % 3 == 0) && (i % 5 == 0)){
+				System.out.println("FizzBuzz");
+			}
+			else if (i % 3 == 0){
+				System.out.println("Fizz");
+			}
+			else if (i % 5 == 0) {
+				System.out.println("Buzz");
+			}
+			else {
+				System.out.println(i);
+			}
+		}
+
 	}
 
 	/**
@@ -26,8 +41,20 @@ public class General {
 	 *            rows
 	 */
 	public static void printPascalsTriangle(int nthRow) {
-		
+		if (nthRow < 0) {
+			throw new IllegalArgumentException();
+		} 
+		for(int i = 0; i < nthRow; i++) {
+			int number = 1;
+		for(int j = 0; j <= i; j++) {
+			System.out.print(number + " ");
+			number = number * (i - j) / (j + 1);
+		}
+		System.out.println();
+		}
 	}
+
+
 
 	/**
 	 * @author William
@@ -38,7 +65,12 @@ public class General {
 	 */
 
 	public static Integer reverseNumber(int toBeReversed) {
-
-		return null;
+		int reverse = 0;
+		 while(toBeReversed != 0){
+		        reverse = reverse * 10 + toBeReversed % 10;
+		        toBeReversed = toBeReversed/10;
+		    }
+		 
+		return reverse;
 	}
 }
