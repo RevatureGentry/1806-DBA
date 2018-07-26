@@ -83,6 +83,40 @@
         </ol>
     </div>
 
+    <div class="objects-in-js">
+        <h2>Fundamentally, Objects are just a collection of key-value pairs</h2>
+        <p>Objects can be created in the following ways</p>
+        <ol>
+            <li>Through Object Literal Notation (using curly braces)</li>
+            <li>By instantiating a new Object()</li>
+            <li>With a <em>constructor</em></li>
+        </ol>
+    </div>
+
+    <div class="events">
+        <h2>Events in JavaScript are reactions to user actions. In general, they begin with <em>on</em> ("onclick", "ondblclick", "onload", etc)</h2>
+        <h2>Event Listeners are attached to HTML elements and wait for its specified event to occur,
+             and invokes its specified callback function when the event occurs
+        </h2>
+        <p>We can get references to HTML elements in 5 (main) ways</p>
+        <ol>
+            <li>document.getElementById => returns a reference to the HTML element with the specified ID</li>
+            <li>document.getElementsByClassName => returns an array of HTML elements that contain the specified
+                 class name
+            </li>
+            <li>document.getElementsByTagName => returns an array of HTML elements of the specified tag name</li>
+            <li>document.querySelector => returns the first instance of an HTML element with the specified 
+                CSS selector
+            </li>
+            <li>document.querySelectorAll => returns an array of HTML elements matching the specified CSS Selector</li>
+        </ol>
+        <h2>Events are executed in one of two ways</h2>
+        <ul>
+            <li>Bubbling is the execution of events from the innermost tags to the outermost tags</li>
+            <li>Capturing is the execution of events from the outermost tags to the innermost</li>
+        </ul>
+    </div>
+
 
     <!-- A VERY COMMON PAIN POINT -->
     <!-- You must link you JS file to your HTML for any of the code to be connected -->
@@ -90,5 +124,7 @@
     <script src='./helloWorld.js'></script>
     <script src="./variableScopes.js"></script>
     <script src="./functions.js"></script>
+    <script src="./objects.js"></script>
+    <!-- <script src="./bubblingAndCapturing.js"></script> -->
 </body>
 </html>
