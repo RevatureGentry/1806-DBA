@@ -41,7 +41,7 @@ public class WorkingWithStrings {
 	 *         CHALLENGE: Reverse the String using ONLY {@link String#charAt(int)}
 	 */
 
-	public static String reverse(String input) throws IllegalArgumentException {
+	public static String reverse(String input) {
 		
 		if (input == null) {
 			throw new IllegalArgumentException();
@@ -53,19 +53,19 @@ public class WorkingWithStrings {
 		while (true) {
 			try {
 				input.charAt(i);
+				i++;
 			} catch (StringIndexOutOfBoundsException e) {
+				i--;
+				while (i >= 0) {
+					result += input.charAt(i);
+					i--;
+				}
 				break;
 			}
-			i++;
 		}
 		
-		i--;
-		
-		while (i >= 0) {
-			result += input.charAt(i);
-			i--;
-		}
 		return result;
+		
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class WorkingWithStrings {
 	 *         `Programming`, the method should return `Progamin`
 	 */
 
-	public static String removeDuplicateCharacters(String input) throws IllegalArgumentException {
+	public static String removeDuplicateCharacters(String input) {
 		
 		if (input == null) {
 			throw new IllegalArgumentException();

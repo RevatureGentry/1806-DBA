@@ -49,7 +49,7 @@ public class Calculator {
 	 *         Sequence, recursively. For this method, the Fibonacci sequence starts
 	 *         at 1
 	 */
-	public static Integer termInFibonacciSequence(int a) throws IllegalArgumentException {
+	public static Integer termInFibonacciSequence(int a) {
 		if (a < 0) {
 			throw new IllegalArgumentException();
 		} else if (a == 0) {
@@ -70,7 +70,7 @@ public class Calculator {
 	 *         Sequence, iteratively. For this method, the Fibonacci sequence starts
 	 *         at 1
 	 */
-	public static Integer termInFibonacciSequenceIteratively(int a) throws IllegalArgumentException {
+	public static Integer termInFibonacciSequenceIteratively(int a) {
 		if (a < 0) {
 			throw new IllegalArgumentException();
 		}
@@ -161,7 +161,7 @@ public class Calculator {
 	 *         a prime number or not
 	 */
 
-	public static Boolean isPrime(int input) throws IllegalArgumentException {
+	public static Boolean isPrime(int input) {
 		if (input < 0) {
 			throw new IllegalArgumentException();
 		} else if (input <= 1) {

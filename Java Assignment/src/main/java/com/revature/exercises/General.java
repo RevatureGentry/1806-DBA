@@ -35,7 +35,7 @@ public class General {
 	 *            e.g. If we provide the argument 3, it should print out the first 3
 	 *            rows
 	 */
-	public static void printPascalsTriangle(int nthRow) throws IllegalArgumentException {
+	public static void printPascalsTriangle(int nthRow) {
 		if (nthRow < 0) {
 			throw new IllegalArgumentException();
 		}
