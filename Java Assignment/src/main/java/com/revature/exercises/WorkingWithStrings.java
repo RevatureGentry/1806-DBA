@@ -12,11 +12,11 @@ public class WorkingWithStrings {
 	 * 
 	 */
 	public static Boolean isPalindrome(String input) {
-		if (input == null)
-			return false;
-		
-		String lowerCase = input.replaceAll("[^a-zA-Z]","");
-		String answer = lowerCase.toLowerCase();
+	    if (input == null)
+		return false;
+
+	    String lowerCase = input.replaceAll("[^a-zA-Z]","");
+	    String answer = lowerCase.toLowerCase();
 		
 	    int length = answer.length();
 	    int forward = 0;
@@ -44,10 +44,10 @@ public class WorkingWithStrings {
 	 */
 
 	public static String reverse(String input) {
-		if (input == null )
-			throw new IllegalArgumentException();
+	    if (input == null )
+		throw new IllegalArgumentException();
 		
-		char string[] = input.toCharArray();  
+	    char string[] = input.toCharArray();  
 	    String reverse = ""; 
 	    
 	    for(int i = string.length-1 ; i>=0 ; i--){  
@@ -107,15 +107,15 @@ public class WorkingWithStrings {
 		int length = letters.length;
 
 		for (int i = 0; i < length; i++) {
-            for (int f = i + 1; f < length; f++) {
-                if (Character.toString(letters[i]).equalsIgnoreCase(Character.toString(letters[f]))) {
-                    int temp = f;
- 
-                    for (int n = temp; n < length - 1; n++) {
-                    	letters[n] = letters[n + 1];
-                    }
-                    f--;
-                    length--;
+            	    for (int f = i + 1; f < length; f++) {
+                	if (Character.toString(letters[i]).equalsIgnoreCase(Character.toString(letters[f]))) {
+			    int temp = f;
+
+			    for (int n = temp; n < length - 1; n++) {
+				letters[n] = letters[n + 1];
+			    }
+			    f--;
+			    length--;
  
                 }
             }
@@ -123,7 +123,6 @@ public class WorkingWithStrings {
 		String noDuplicates = new String(letters);
 		noDuplicates = noDuplicates.substring(0, length);
 		return noDuplicates;
-		
 	}
 
 	/**
@@ -137,12 +136,12 @@ public class WorkingWithStrings {
 	 */
 	
 	public static Boolean uniqueCharactersOnly(String input) {
-		if (input == null)
-			throw new IllegalArgumentException();
-        for (int i=0; i<input.length(); i++)
-            for (int j=i+1; j<input.length(); j++)
-                if (input.charAt(i) == input.charAt(j))
-                    return false;
+	    if (input == null)
+		throw new IllegalArgumentException();
+	        for (int i=0; i<input.length(); i++)
+		    for (int j=i+1; j<input.length(); j++)
+			if (input.charAt(i) == input.charAt(j))
+			    return false;
         return true;
 	}
 
